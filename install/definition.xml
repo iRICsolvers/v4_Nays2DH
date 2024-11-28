@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SolverDefinition 
-	xmlns="www.iric.net/SolverDefinition/1.0"
-	name="Nays2DH" 
-	caption="Nays2DH iRIC.4x 1.0 64bit" 
-	version="1.6.008"
-	copyright="Yasuyuki SHIMIZU and Hiroshi TAKEBAYASHI"
-	release="2022.7.13"
-	homepage="http://i-ric.org"
-	executable="Nays2DH.exe"
-	iterationtype="time"
-	gridtype="structured2d"
+xmlns="www.iric.net/SolverDefinition/1.0" 
+name="Nays2DH" 
+caption="Nays2DH iRIC.4x 1.0 64bit" 
+version="1.6.008" 
+copyright="Yasuyuki SHIMIZU and Hiroshi TAKEBAYASHI" 
+release="2022.7.13" 
+homepage="http://i-ric.org" 
+executable="Nays2DH.exe" 
+iterationtype="time" 
+gridtype="structured2d"
 >
+
 	<CalculationCondition>
 		<Tab name="solvers" caption="Solver Type">
 			<Content>
 				<Items>
 					<Item name="edition" caption="Select solver type">
-						<Definition conditionType="constant" valueType="integer" option="true" default="0">
+						<Definition valueType="integer" default="0">
 							<Enumerations>
 								<Enumeration value="0" caption="Standard"/>
 								<Enumeration value="1" caption="+Advanced"/>
@@ -24,7 +25,7 @@
 						</Definition>
 					</Item>
 					<Item name="j_qbs" caption="   Bed deformation">
-						<Definition conditionType="constant" valueType="integer" option="true" default="0">
+						<Definition valueType="integer" default="0">
 							<Enumerations>
 								<Enumeration value="0" caption="Disabled"/>
 								<Enumeration value="1" caption="Enabled"/>
@@ -32,7 +33,7 @@
 						</Definition>
 					</Item>
 					<Item name="j_cip" caption="   Finite differential method of advection terms">
-						<Definition conditionType="constant" valueType="integer" option="true" default="2">
+						<Definition valueType="integer" default="2">
 							<Enumerations>
 								<Enumeration value="1" caption="upwind scheme"/>
 								<Enumeration value="2" caption="CIP method"/>
@@ -40,7 +41,7 @@
 						</Definition>
 					</Item>
 					<Item name="j_conf" caption="   +Confluence">
-						<Definition conditionType="constant" valueType="integer" option="true" default="0">
+						<Definition valueType="integer" default="0">
 							<Enumerations>
 								<Enumeration value="0" caption="Disabled"/>
 								<Enumeration value="1" caption="Enabled : TypeA, from left bank"/>
@@ -49,30 +50,30 @@
 							</Enumerations>
 							<Dependency>
 								<Condition type="and">
-								       <Condition type="isEqual" target="edition" value="1"/>
+									<Condition type="isEqual" target="edition" value="1"/>
 								</Condition>
 								<Action type="enable"/>
 							</Dependency>
 						</Definition>
 					</Item>
 					<Item name="j_mix" caption="   +Bed material type">
-						<Definition conditionType="constant" valueType="integer" option="true" default="0">
+						<Definition valueType="integer" default="0">
 							<Enumerations>
 								<Enumeration value="0" caption="Uniform"/>
 								<Enumeration value="1" caption="Non-uniform"/>
 							</Enumerations>
 							<Dependency>
 								<Condition type="and">
-								       <Condition type="isEqual" target="j_bank" value="0"/>
-								       <Condition type="isEqual" target="j_bedload" value="1"/>
-								       <Condition type="isEqual" target="edition" value="1"/>
+									<Condition type="isEqual" target="j_bank" value="0"/>
+									<Condition type="isEqual" target="j_bedload" value="1"/>
+									<Condition type="isEqual" target="edition" value="1"/>
 								</Condition>
 								<Action type="enable"/>
 							</Dependency>
 						</Definition>
 					</Item>
 					<Item name="j_qbqs" caption="   +Sediment transport type">
-						<Definition conditionType="constant" valueType="integer" option="true" default="1">
+						<Definition valueType="integer" default="1">
 							<Enumerations>
 								<Enumeration value="1" caption="Bed load"/>
 								<Enumeration value="2" caption="Bed load and Suspended load"/>
@@ -86,7 +87,7 @@
 						</Definition>
 					</Item>
 					<Item name="j_bedload" caption="   +Bedload transport formula for uniform sediment">
-						<Definition conditionType="constant" valueType="integer" option="true" default="1">
+						<Definition valueType="integer" default="1">
 							<Enumerations>
 								<Enumeration value="0" caption="M.P.M formula"/>
 								<Enumeration value="1" caption="Ashida and Michiue formula"/>
@@ -94,60 +95,60 @@
 							<Dependency>
 								<Condition type="and">
 									<Condition type="isEqual" target="j_mix" value="0"/>
-								   <Condition type="isEqual" target="edition" value="1"/>
+									<Condition type="isEqual" target="edition" value="1"/>
 								</Condition>
 								<Action type="enable"/>
 							</Dependency>
 						</Definition>
 					</Item>
 					<Item name="j_qb_vec" caption="   +Vector of bedload transport">
-						<Definition conditionType="constant" valueType="integer" option="true" default="0">
+						<Definition valueType="integer" default="0">
 							<Enumerations>
 								<Enumeration value="0" caption="Watanabe formula"/>
 								<Enumeration value="1" caption="Ashida, Egashira and Liu formula"/>
 							</Enumerations>
 							<Dependency>
 								<Condition type="and">
-								     <Condition type="isEqual" target="j_bank" value="0"/>
-							        <Condition type="isEqual" target="edition" value="1"/>
+									<Condition type="isEqual" target="j_bank" value="0"/>
+									<Condition type="isEqual" target="edition" value="1"/>
 								</Condition>
 								<Action type="enable"/>
 							</Dependency>
 						</Definition>
 					</Item>
 					<Item name="j_qsu" caption="   +Formula of upward flux of suspended load from river bed">
-						<Definition conditionType="constant" valueType="integer" option="true" default="0">
+						<Definition valueType="integer" default="0">
 							<Enumerations>
 								<Enumeration value="0" caption="Itakura and Kishi formula"/>
 								<Enumeration value="1" caption="Lane - Kalinske formula"/>
 							</Enumerations>
 							<Dependency>
 								<Condition type="and">
-								    <Condition type="isEqual" target="edition" value="1"/>
+									<Condition type="isEqual" target="edition" value="1"/>
 								</Condition>
 								<Action type="enable"/>
 							</Dependency>
 						</Definition>
 					</Item>
 					<Item name="j_bank" caption="   +Bank erosion">
-						<Definition conditionType="constant" valueType="integer" option="true" default="0">
+						<Definition valueType="integer" default="0">
 							<Enumerations>
 								<Enumeration value="0" caption="Disabled"/>
 								<Enumeration value="1" caption="Enabled"/>
 							</Enumerations>
 							<Dependency>
 								<Condition type="and">
-								       <Condition type="isEqual" target="j_conf" value="0"/>
-								       <Condition type="isEqual" target="j_mix" value="0"/>
-								       <Condition type="isEqual" target="j_qb_vec" value="0"/>
-								       <Condition type="isEqual" target="edition" value="1"/>
+									<Condition type="isEqual" target="j_conf" value="0"/>
+									<Condition type="isEqual" target="j_mix" value="0"/>
+									<Condition type="isEqual" target="j_qb_vec" value="0"/>
+									<Condition type="isEqual" target="edition" value="1"/>
 								</Condition>
 								<Action type="enable"/>
 							</Dependency>
 						</Definition>
 					</Item>
 					<Item name="j_collaps" caption="   +Slope collapse model">
-						<Definition conditionType="constant" valueType="integer" option="true" default="0">
+						<Definition valueType="integer" default="0">
 							<Enumerations>
 								<Enumeration value="0" caption="No"/>
 								<Enumeration value="1" caption="Yes"/>
@@ -161,7 +162,7 @@
 						</Definition>
 					</Item>
 					<Item name="j_snu" caption="   +Turbulent model">
-						<Definition conditionType="constant" valueType="integer" option="true" default="1">
+						<Definition valueType="integer" default="1">
 							<Enumerations>
 								<Enumeration value="0" caption="Constant eddy viscosity"/>
 								<Enumeration value="1" caption="Zero equation model"/>
@@ -169,20 +170,20 @@
 							</Enumerations>
 							<Dependency>
 								<Condition type="and">
-								       <Condition type="isEqual" target="edition" value="1"/>
+									<Condition type="isEqual" target="edition" value="1"/>
 								</Condition>
 							</Dependency>
 						</Definition>
 					</Item>
 					<Item name="j_zb" caption="   +How to set elevation of fixed bed">
-						<Definition conditionType="constant" valueType="integer" option="true" default="0">
+						<Definition valueType="integer" default="0">
 							<Enumerations>
 								<Enumeration value="0" caption="Use initial bed elevations of fixed bed cells"/>
 								<Enumeration value="1" caption="Use elevation data of fixed bed"/>
 							</Enumerations>
 							<Dependency>
 								<Condition type="and">
-								       <Condition type="isEqual" target="edition" value="1"/>
+									<Condition type="isEqual" target="edition" value="1"/>
 								</Condition>
 							</Dependency>
 						</Definition>
@@ -194,22 +195,22 @@
 			<Content>
 				<Items>
 					<Item name="jrep" caption="Periodic boundary condition">
-						<Definition conditionType="constant" valueType="integer" option="true" default="0">
+						<Definition valueType="integer" default="0">
 							<Enumerations>
 								<Enumeration value="0" caption="Disabled"/>
 								<Enumeration value="1" caption="Enabled"/>
 							</Enumerations>
 							<Dependency>
 								<Condition type="and">
-								  <Condition type="isEqual" target="j_conf" value="0"/>
-								  <Condition type="isEqual" target="j_qbup" value="0"/>
+									<Condition type="isEqual" target="j_conf" value="0"/>
+									<Condition type="isEqual" target="j_qbup" value="0"/>
 								</Condition>
 								<Action type="enable"/>
 							</Dependency>
 						</Definition>
 					</Item>
 					<Item name="j_wl" caption="Water surface at downstream">
-						<Definition conditionType="constant" valueType="integer" option="true" default="1">
+						<Definition valueType="integer" default="1">
 							<Enumerations>
 								<Enumeration value="0" caption="Constant value"/>
 								<Enumeration value="1" caption="Uniform flow"/>
@@ -219,7 +220,7 @@
 						</Definition>
 					</Item>
 					<Item name="h_down" caption="   Constant value (m)">
-						<Definition conditionType="constant" valueType="real" option="false" default="0">
+						<Definition valueType="real" option="false" default="0">
 							<Dependency>
 								<Condition type="isEqual" target="j_wl" value="0"/>
 								<Action type="enable"/>
@@ -227,7 +228,7 @@
 						</Definition>
 					</Item>
 					<Item name="j_slope" caption="   Slope for uniform flow">
-						<Definition conditionType="constant" valueType="integer" option="true" default="0">
+						<Definition valueType="integer" default="0">
 							<Enumerations>
 								<Enumeration value="0" caption="Calculated from geographic data"/>
 								<Enumeration value="1" caption="Constant value"/>
@@ -239,7 +240,7 @@
 						</Definition>
 					</Item>
 					<Item name="bh_slope" caption="   Slope value at downstream">
-						<Definition conditionType="constant" valueType="real" option="false" default="0.001">
+						<Definition valueType="real" option="false" default="0.001">
 							<Dependency>
 								<Condition type="and">
 									<Condition type="isEqual" target="j_wl" value="1"/>
@@ -250,7 +251,7 @@
 						</Definition>
 					</Item>
 					<Item name="j_upv" caption="Velocity at upstream">
-						<Definition conditionType="constant" valueType="integer" option="true" default="1">
+						<Definition valueType="integer" default="1">
 							<Enumerations>
 								<Enumeration value="1" caption="Uniform flow"/>
 								<Enumeration value="2" caption="Calculated from upstream depth"/>
@@ -262,7 +263,7 @@
 						</Definition>
 					</Item>
 					<Item name="j_upv_slope" caption="   Slope for uniform flow">
-						<Definition conditionType="constant" valueType="integer" option="true" default="0">
+						<Definition valueType="integer" default="0">
 							<Enumerations>
 								<Enumeration value="0" caption="Calculated from geographic data"/>
 								<Enumeration value="1" caption="Constant value"/>
@@ -277,7 +278,7 @@
 						</Definition>
 					</Item>
 					<Item name="upv_slope" caption="   Slope value at upstream">
-						<Definition conditionType="constant" valueType="real" option="false" default="0.001">
+						<Definition valueType="real" option="false" default="0.001">
 							<Dependency>
 								<Condition type="and">
 									<Condition type="isEqual" target="j_upv_slope" value="1"/>
@@ -287,7 +288,7 @@
 						</Definition>
 					</Item>
 					<Item name="upv_slope_t" caption="    +Slope value of tributary channel">
-						<Definition conditionType="constant" valueType="real" option="false" default="0.001">
+						<Definition valueType="real" option="false" default="0.001">
 							<Dependency>
 								<Condition type="and">
 									<Condition type="isEqual" target="j_upv_slope" value="1"/>
@@ -298,7 +299,7 @@
 						</Definition>
 					</Item>
 					<Item name="i_sec_hour" caption="Time unit of discharge/water surface file">
-						<Definition conditionType="constant" valueType="integer" option="true" default="1">
+						<Definition valueType="integer" default="1">
 							<Enumerations>
 								<Enumeration value="1" caption="Second"/>
 								<Enumeration value="2" caption="Hour"/>
@@ -322,22 +323,22 @@
 						</Definition>
 					</Item>
 					<Item name="j_qbup" caption="   +Change the supply rate of sediment from the upstream boundary">
-						<Definition conditionType="constant" valueType="integer" option="true" default="0">
+						<Definition valueType="integer" default="0">
 							<Enumerations>
 								<Enumeration value="0" caption="No"/>
 								<Enumeration value="1" caption="Yes"/>
 							</Enumerations>
 							<Dependency>
 								<Condition type="and">
-								   <Condition type="isEqual" target="edition" value="1"/>
-								   <Condition type="isEqual" target="jrep" value="0"/>
+									<Condition type="isEqual" target="edition" value="1"/>
+									<Condition type="isEqual" target="jrep" value="0"/>
 								</Condition>
 								<Action type="enable"/>
 							</Dependency>
 						</Definition>
 					</Item>
 					<Item name="cse" caption="   +The ratio of supplied sediment transport to an equilibrium sediment transport (%)">
-						<Definition conditionType="constant" valueType="real" option="false" default="100">
+						<Definition valueType="real" option="false" default="100">
 							<Dependency>
 								<Condition type="isEqual" target="j_qbup" value="1"/>
 								<Action type="enable"/>
@@ -352,26 +353,26 @@
 			<Content>
 				<Items>
 					<Item name="tuk" caption="Output time interval (sec)">
-						<Definition conditionType="constant" valueType="real" option="false" default="10"/>
+						<Definition valueType="real" option="false" default="10"/>
 					</Item>
 					<Item name="dt" caption="Calculation time step (sec)">
-						<Definition conditionType="constant" valueType="real" option="false" default="0.01"/>
+						<Definition valueType="real" option="false" default="0.01"/>
 					</Item>
 					<Item name="t_out_start" caption="Start time of output (sec)">
-						<Definition conditionType="constant" valueType="real" option="false" default="30"/>
+						<Definition valueType="real" option="false" default="30"/>
 					</Item>
 					<Item name="ster" caption="Start Time of bed deformation (sec) &lt;br&gt;[Negative is no bed deformation]">
-						<Definition conditionType="constant" valueType="real" option="false" default="30">
+						<Definition valueType="real" option="false" default="30">
 							<Dependency>
 								<Condition type="isEqual" target="j_qbs" value="1"/>
 							</Dependency>
 						</Definition>
 					</Item>
 					<Item name="lmax" caption="Maximum number of iterations of water surface calculation">
-						<Definition conditionType="constant" valueType="integer" option="false" default="10"/>
+						<Definition valueType="integer" option="false" default="10"/>
 					</Item>
 					<Item name="alh" caption="Relaxation coefficient for water surface calculation">
-						<Definition conditionType="constant" valueType="real" option="false" default="0.8"/>
+						<Definition valueType="real" option="false" default="0.8"/>
 					</Item>
 				</Items>
 			</Content>
@@ -380,7 +381,7 @@
 			<Content>
 				<Items>
 					<Item name="i_flow" caption="Initial water surface">
-						<Definition conditionType="constant" valueType="integer" option="true" default="2">
+						<Definition valueType="integer" default="2">
 							<Enumerations>
 								<Enumeration value="0" caption="Constant slope"/>
 								<Enumeration value="1" caption="Line"/>
@@ -390,7 +391,7 @@
 						</Definition>
 					</Item>
 					<Item name="h_slope" caption="Initial water-surface slope of main channel">
-						<Definition conditionType="constant" valueType="real" option="false" default="0.001">
+						<Definition valueType="real" option="false" default="0.001">
 							<Dependency>
 								<Condition type="isEqual" target="i_flow" value="0"/>
 								<Action type="enable"/>
@@ -398,7 +399,7 @@
 						</Definition>
 					</Item>
 					<Item name="x_bk" caption="Distance of the break point from downstream end">
-						<Definition conditionType="constant" valueType="real" option="false" default="5.0">
+						<Definition valueType="real" option="false" default="5.0">
 							<Dependency>
 								<Condition type="isEqual" target="i_flow" value="1"/>
 								<Action type="enable"/>
@@ -406,7 +407,7 @@
 						</Definition>
 					</Item>
 					<Item name="h_slope_1" caption="Initial water-surface slope of downstream side">
-						<Definition conditionType="constant" valueType="real" option="false" default="0.001">
+						<Definition valueType="real" option="false" default="0.001">
 							<Dependency>
 								<Condition type="isEqual" target="i_flow" value="1"/>
 								<Action type="enable"/>
@@ -414,7 +415,7 @@
 						</Definition>
 					</Item>
 					<Item name="h_slope_2" caption="Initial water-surface slope of upstream side">
-						<Definition conditionType="constant" valueType="real" option="false" default="0.001">
+						<Definition valueType="real" option="false" default="0.001">
 							<Dependency>
 								<Condition type="isEqual" target="i_flow" value="1"/>
 								<Action type="enable"/>
@@ -422,7 +423,7 @@
 						</Definition>
 					</Item>
 					<Item name="h_slope_t" caption="   +Initial water-surface slope of tributary channel">
-						<Definition conditionType="constant" valueType="real" option="false" default="0.001">
+						<Definition valueType="real" option="false" default="0.001">
 							<Dependency>
 								<Condition type="and">
 									<Condition type="isEqual" target="i_flow" value="0"/>
@@ -438,7 +439,7 @@
 			<Content>
 				<Items>
 					<Item name="diam" caption="Diameter of uniform bed material (mm)">
-						<Definition conditionType="constant" valueType="real" option="false" default="0.55">
+						<Definition valueType="real" option="false" default="0.55">
 							<Dependency>
 								<Condition type="isEqual" target="j_mix" value="0"/>
 								<Action type="enable"/>
@@ -452,10 +453,10 @@
 			<Content>
 				<Items>
 					<Item name="c_tree" caption="Drag coefficient of tree">
-						<Definition conditionType="constant" valueType="real" option="false" default="1"/>
+						<Definition valueType="real" option="false" default="1"/>
 					</Item>
 					<Item name="j_vege" caption="Use the data of vegetation height in the cells ?">
-						<Definition conditionType="constant" valueType="integer" option="true" default="0">
+						<Definition valueType="integer" default="0">
 							<Enumerations>
 								<Enumeration value="0" caption="No"/>
 								<Enumeration value="1" caption="Yes"/>
@@ -469,7 +470,7 @@
 			<Content>
 				<Items>
 					<Item name="j_m1" caption="Starting cross sectional grid number of main channel(j_m1)">
-						<Definition conditionType="constant" valueType="integer" option="false" default="0" max="9999">
+						<Definition valueType="integer" option="false" default="0" max="9999">
 							<Dependency>
 								<Condition type="isGreaterEqual" target="j_conf" value="1"/>
 								<Action type="enable"/>
@@ -477,7 +478,7 @@
 						</Definition>
 					</Item>
 					<Item name="j_m2" caption="Ending cross sectional grid number of main channel(j_m2)">
-						<Definition conditionType="constant" valueType="integer" option="false" default="0" max="9999">
+						<Definition valueType="integer" option="false" default="0" max="9999">
 							<Dependency>
 								<Condition type="isGreaterEqual" target="j_conf" value="1"/>
 								<Action type="enable"/>
@@ -485,7 +486,7 @@
 						</Definition>
 					</Item>
 					<Item name="j_t1" caption="Starting cross sectional grid number of tributary(j_t1)">
-						<Definition conditionType="constant" valueType="integer" option="false" default="0" max="9999">
+						<Definition valueType="integer" option="false" default="0" max="9999">
 							<Dependency>
 								<Condition type="isGreaterEqual" target="j_conf" value="1"/>
 								<Action type="enable"/>
@@ -493,7 +494,7 @@
 						</Definition>
 					</Item>
 					<Item name="j_t2" caption="Ending cross sectional grid number of tributary(j_t2)">
-						<Definition conditionType="constant" valueType="integer" option="false" default="0" max="9999">
+						<Definition valueType="integer" option="false" default="0" max="9999">
 							<Dependency>
 								<Condition type="isGreaterEqual" target="j_conf" value="1"/>
 								<Action type="enable"/>
@@ -501,7 +502,7 @@
 						</Definition>
 					</Item>
 					<Item name="i_t1" caption="Longitudinal grid number where tributary starts(i_t1)">
-						<Definition conditionType="constant" valueType="integer" option="false" default="0" max="9999">
+						<Definition valueType="integer" option="false" default="0" max="9999">
 							<Dependency>
 								<Condition type="isGreaterEqual" target="j_conf" value="1"/>
 								<Action type="enable"/>
@@ -509,7 +510,7 @@
 						</Definition>
 					</Item>
 					<Item name="i_t2" caption="Longitudinal grid number where tributary ends(i_t2)">
-						<Definition conditionType="constant" valueType="integer" option="false" default="0" max="9999">
+						<Definition valueType="integer" option="false" default="0" max="9999">
 							<Dependency>
 								<Condition type="isGreaterEqual" target="j_conf" value="1"/>
 								<Action type="enable"/>
@@ -523,7 +524,7 @@
 			<Content>
 				<Items>
 					<Item name="j_mix_dis" caption="Grain size distribution is given based on;">
-						<Definition conditionType="constant" valueType="integer" option="true" default="0">
+						<Definition valueType="integer" default="0">
 							<Enumerations>
 								<Enumeration value="0" caption="Passing percenrage"/>
 								<Enumeration value="1" caption="Fraction"/>
@@ -581,7 +582,7 @@
 						</Definition>
 					</Item>
 					<Item name="j_mix_dis_dep" caption="Grain size distribution in deposited layer is;">
-						<Definition conditionType="constant" valueType="integer" option="true" default="0">
+						<Definition valueType="integer" default="0">
 							<Enumerations>
 								<Enumeration value="0" caption="Same in mixed layer"/>
 								<Enumeration value="1" caption="Given"/>
@@ -641,7 +642,7 @@
 						</Definition>
 					</Item>
 					<Item name="e_m" caption="Thickness of bedload layer(m)">
-						<Definition conditionType="constant" valueType="real" option="false" default="0.01">
+						<Definition valueType="real" option="false" default="0.01">
 							<Dependency>
 								<Condition type="isEqual" target="j_mix" value="1"/>
 								<Action type="enable"/>
@@ -649,7 +650,7 @@
 						</Definition>
 					</Item>
 					<Item name="e_d" caption="Thickness of deposited layer(m)">
-						<Definition conditionType="constant" valueType="real" option="false" default="0.01">
+						<Definition valueType="real" option="false" default="0.01">
 							<Dependency>
 								<Condition type="isEqual" target="j_mix" value="1"/>
 								<Action type="enable"/>
@@ -657,7 +658,7 @@
 						</Definition>
 					</Item>
 					<Item name="e_thick" caption="Thickness of movable bed layer under the initial bed(m)">
-						<Definition conditionType="constant" valueType="real" option="false" default="0.1">
+						<Definition valueType="real" option="false" default="0.1">
 							<Dependency>
 								<Condition type="isEqual" target="j_mix" value="1"/>
 								<Action type="enable"/>
@@ -665,7 +666,7 @@
 						</Definition>
 					</Item>
 					<Item name="nm" caption="Maximum number of deposited layer">
-						<Definition conditionType="constant" valueType="integer" option="false" default="30" max="9999">
+						<Definition valueType="integer" option="false" default="30" max="9999">
 							<Dependency>
 								<Condition type="isEqual" target="j_mix" value="1"/>
 								<Action type="enable"/>
@@ -680,7 +681,7 @@
 			<Content>
 				<Items>
 					<Item name="i_erosion_start" caption="Bank erosion starting section number from upstream end">
-						<Definition conditionType="constant" valueType="integer" option="false" default="5">
+						<Definition valueType="integer" option="false" default="5">
 							<Dependency>
 								<Condition type="isEqual" target="j_bank" value="1"/>
 								<Action type="enable"/>
@@ -688,7 +689,7 @@
 						</Definition>
 					</Item>
 					<Item name="i_erosion_end" caption="Bank erosion end section number from downstream end">
-						<Definition conditionType="constant" valueType="integer" option="false" default="5" max="9999">
+						<Definition valueType="integer" option="false" default="5" max="9999">
 							<Dependency>
 								<Condition type="isEqual" target="j_bank" value="1"/>
 								<Action type="enable"/>
@@ -696,7 +697,7 @@
 						</Definition>
 					</Item>
 					<Item name="bheight" caption="Height of bank (m)">
-						<Definition conditionType="constant" valueType="real" option="false" default="0.03">
+						<Definition valueType="real" option="false" default="0.03">
 							<Dependency>
 								<Condition type="isEqual" target="j_bank" value="1"/>
 								<Action type="enable"/>
@@ -704,7 +705,7 @@
 						</Definition>
 					</Item>
 					<Item name="j_smooth" caption="Bank smoothing">
-						<Definition conditionType="constant" valueType="integer" option="true" default="0">
+						<Definition valueType="integer" default="0">
 							<Enumerations>
 								<Enumeration value="0" caption="No"/>
 								<Enumeration value="1" caption="Yes"/>
@@ -716,7 +717,7 @@
 						</Definition>
 					</Item>
 					<Item name="i_smooth" caption="Smoothing range in downstream direction">
-						<Definition conditionType="constant" valueType="integer" option="false" default="5">
+						<Definition valueType="integer" option="false" default="5">
 							<Dependency>
 								<Condition type="and">
 									<Condition type="isEqual" target="j_bank" value="1"/>
@@ -727,7 +728,7 @@
 						</Definition>
 					</Item>
 					<Item name="tantc" caption="Tangent value of the critical angle of repose of the bed material">
-						<Definition conditionType="constant" valueType="real" option="false" default="0.3">
+						<Definition valueType="real" option="false" default="0.3">
 							<Dependency>
 								<Condition type="or">
 									<Condition type="isEqual" target="j_bank" value="1"/>
@@ -745,16 +746,16 @@
 			<Content>
 				<Items>
 					<Item name="snst" caption="Strength of secondary flows for sediment transport">
-						<Definition conditionType="constant" valueType="real" option="false" default="7.0">
+						<Definition valueType="real" option="false" default="7.0">
 							<Dependency>
 								<Condition type="and">
-								       <Condition type="isEqual" target="edition" value="1"/>
+									<Condition type="isEqual" target="edition" value="1"/>
 								</Condition>
 							</Dependency>
 						</Definition>
 					</Item>
 					<Item name="j_sf" caption="Use a transport equation of vorticity for calculating a secondary flow">
-						<Definition conditionType="constant" valueType="integer" option="true" default="0">
+						<Definition valueType="integer" default="0">
 							<Enumerations>
 								<Enumeration value="0" caption="No"/>
 								<Enumeration value="1" caption="Yes"/>
@@ -773,66 +774,66 @@
 			<Content>
 				<Items>
 					<Item name="rho" caption="Density of water (kg/m&lt;sup&gt;3&lt;/sup&gt;)">
-						<Definition conditionType="constant" valueType="real" option="false" default="1000.0">
+						<Definition valueType="real" option="false" default="1000.0">
 							<Dependency>
 								<Condition type="and">
-								       <Condition type="isEqual" target="edition" value="1"/>
+									<Condition type="isEqual" target="edition" value="1"/>
 								</Condition>
 							</Dependency>
 						</Definition>
 					</Item>
 					<Item name="spec" caption="Relative weight of bed material">
-						<Definition conditionType="constant" valueType="real" option="false" default="1.65">
+						<Definition valueType="real" option="false" default="1.65">
 							<Dependency>
 								<Condition type="and">
-								       <Condition type="isEqual" target="edition" value="1"/>
+									<Condition type="isEqual" target="edition" value="1"/>
 								</Condition>
 							</Dependency>
 						</Definition>
 					</Item>
 					<Item name="slambda" caption="Void ratio of bed material">
-						<Definition conditionType="constant" valueType="real" option="false" default="0.4">
+						<Definition valueType="real" option="false" default="0.4">
 							<Dependency>
 								<Condition type="and">
-								       <Condition type="isEqual" target="edition" value="1"/>
+									<Condition type="isEqual" target="edition" value="1"/>
 								</Condition>
 							</Dependency>
 						</Definition>
 					</Item>
 					<Item name="a_snu" caption="A for eddy viscosity coefficient (k/6u*h x A + B)">
-						<Definition conditionType="constant" valueType="real" option="false" default="1">
+						<Definition valueType="real" option="false" default="1">
 							<Dependency>
 								<Condition type="and">
-								       <Condition type="isEqual" target="edition" value="1"/>
-								       <Condition type="isEqual" target="j_snu" value="1"/>
+									<Condition type="isEqual" target="edition" value="1"/>
+									<Condition type="isEqual" target="j_snu" value="1"/>
 								</Condition>
 							</Dependency>
 						</Definition>
 					</Item>
 					<Item name="b_snu" caption="B for eddy viscosity coefficient (k/6u*h x A + B)">
-						<Definition conditionType="constant" valueType="real" option="false" default="0">
+						<Definition valueType="real" option="false" default="0">
 							<Dependency>
 								<Condition type="and">
-								       <Condition type="isEqual" target="edition" value="1"/>
-								       <Condition type="isEqual" target="j_snu" value="1"/>
+									<Condition type="isEqual" target="edition" value="1"/>
+									<Condition type="isEqual" target="j_snu" value="1"/>
 								</Condition>
 							</Dependency>
 						</Definition>
 					</Item>
 					<Item name="csm" caption="Morphological factor">
-						<Definition conditionType="constant" valueType="real" option="false" default="1">
+						<Definition valueType="real" option="false" default="1">
 							<Dependency>
 								<Condition type="and">
-								       <Condition type="isEqual" target="edition" value="1"/>
+									<Condition type="isEqual" target="edition" value="1"/>
 								</Condition>
 							</Dependency>
 						</Definition>
 					</Item>
 					<Item name="n_parallel" caption="Number of threads for parallel computation (Only multi core PC)">
-						<Definition conditionType="constant" valueType="integer" option="false" default="1">
+						<Definition valueType="integer" option="false" default="1">
 							<Dependency>
 								<Condition type="and">
-								       <Condition type="isEqual" target="edition" value="1"/>
+									<Condition type="isEqual" target="edition" value="1"/>
 								</Condition>
 							</Dependency>
 						</Definition>
@@ -844,20 +845,20 @@
 			<Content>
 				<Items>
 					<Item name="write_flag" caption="Output temporary files">
-						<Definition conditionType="constant" valueType="integer" option="true" default="0">
+						<Definition valueType="integer" default="0">
 							<Enumerations>
 								<Enumeration value="0" caption="No"/>
 								<Enumeration value="1" caption="Yes"/>
 							</Enumerations>
 							<Dependency>
 								<Condition type="and">
-								       <Condition type="isEqual" target="edition" value="1"/>
+									<Condition type="isEqual" target="edition" value="1"/>
 								</Condition>
 							</Dependency>
 						</Definition>
 					</Item>
 					<Item name="tmp_pass" caption="Temporary File Path">
-						<Definition conditionType="constant" valueType="string" option="false" default="Write Path">
+						<Definition valueType="string" option="false" default="Write Path">
 							<Dependency>
 								<Condition type="isEqual" target="write_flag" value="1"/>
 								<Action type="enable"/>
@@ -865,7 +866,7 @@
 						</Definition>
 					</Item>
 					<Item name="n_tempfile" caption="Number of temporary files">
-						<Definition conditionType="constant" valueType="integer" option="true" default="0">
+						<Definition valueType="integer" default="0">
 							<Enumerations>
 								<Enumeration value="0" caption="1"/>
 								<Enumeration value="1" caption="2"/>
@@ -885,7 +886,7 @@
 						</Definition>
 					</Item>
 					<Item name="outtime_tmp0" caption="Output time of temp file 0(unit:second)">
-						<Definition conditionType="constant" valueType="real" option="false" default="20">
+						<Definition valueType="real" option="false" default="20">
 							<Dependency>
 								<Condition type="isEqual" target="write_flag" value="1"/>
 								<Action type="enable"/>
@@ -893,7 +894,7 @@
 						</Definition>
 					</Item>
 					<Item name="outtime_tmp1" caption="Output time of temp file 1(unit:second)">
-						<Definition conditionType="constant" valueType="real" option="false" default="40">
+						<Definition valueType="real" option="false" default="40">
 							<Dependency>
 								<Condition type="and">
 									<Condition type="isEqual" target="write_flag" value="1"/>
@@ -904,7 +905,7 @@
 						</Definition>
 					</Item>
 					<Item name="outtime_tmp2" caption="Output time of temp file 2(unit:second)">
-						<Definition conditionType="constant" valueType="real" option="false" default="60">
+						<Definition valueType="real" option="false" default="60">
 							<Dependency>
 								<Condition type="and">
 									<Condition type="isEqual" target="write_flag" value="1"/>
@@ -915,7 +916,7 @@
 						</Definition>
 					</Item>
 					<Item name="outtime_tmp3" caption="Output time of temp file 3(unit:second)">
-						<Definition conditionType="constant" valueType="real" option="false" default="80">
+						<Definition valueType="real" option="false" default="80">
 							<Dependency>
 								<Condition type="and">
 									<Condition type="isEqual" target="write_flag" value="1"/>
@@ -926,7 +927,7 @@
 						</Definition>
 					</Item>
 					<Item name="outtime_tmp4" caption="Output time of temp file 4(unit:second)">
-						<Definition conditionType="constant" valueType="real" option="false" default="100">
+						<Definition valueType="real" option="false" default="100">
 							<Dependency>
 								<Condition type="and">
 									<Condition type="isEqual" target="write_flag" value="1"/>
@@ -937,7 +938,7 @@
 						</Definition>
 					</Item>
 					<Item name="outtime_tmp5" caption="Output time of temp file 5(unit:second)">
-						<Definition conditionType="constant" valueType="real" option="false" default="120">
+						<Definition valueType="real" option="false" default="120">
 							<Dependency>
 								<Condition type="and">
 									<Condition type="isEqual" target="write_flag" value="1"/>
@@ -948,7 +949,7 @@
 						</Definition>
 					</Item>
 					<Item name="outtime_tmp6" caption="Output time of temp file 6(unit:second)">
-						<Definition conditionType="constant" valueType="real" option="false" default="140">
+						<Definition valueType="real" option="false" default="140">
 							<Dependency>
 								<Condition type="and">
 									<Condition type="isEqual" target="write_flag" value="1"/>
@@ -959,7 +960,7 @@
 						</Definition>
 					</Item>
 					<Item name="outtime_tmp7" caption="Output time of temp file 7(unit:second)">
-						<Definition conditionType="constant" valueType="real" option="false" default="160">
+						<Definition valueType="real" option="false" default="160">
 							<Dependency>
 								<Condition type="and">
 									<Condition type="isEqual" target="write_flag" value="1"/>
@@ -970,7 +971,7 @@
 						</Definition>
 					</Item>
 					<Item name="outtime_tmp8" caption="Output time of temp file 8(unit:second)">
-						<Definition conditionType="constant" valueType="real" option="false" default="180">
+						<Definition valueType="real" option="false" default="180">
 							<Dependency>
 								<Condition type="and">
 									<Condition type="isEqual" target="write_flag" value="1"/>
@@ -981,7 +982,7 @@
 						</Definition>
 					</Item>
 					<Item name="outtime_tmp9" caption="Output time of temp file 9(unit:second)">
-						<Definition conditionType="constant" valueType="real" option="false" default="200">
+						<Definition valueType="real" option="false" default="200">
 							<Dependency>
 								<Condition type="and">
 									<Condition type="isEqual" target="write_flag" value="1"/>
@@ -992,20 +993,20 @@
 						</Definition>
 					</Item>
 					<Item name="read_flag" caption="Calculate from initial or temporary file">
-						<Definition conditionType="constant" valueType="integer" option="true" default="0">
+						<Definition valueType="integer" default="0">
 							<Enumerations>
 								<Enumeration value="0" caption="Initial"/>
 								<Enumeration value="1" caption="Restart"/>
 							</Enumerations>
 							<Dependency>
 								<Condition type="and">
-								       <Condition type="isEqual" target="edition" value="1"/>
+									<Condition type="isEqual" target="edition" value="1"/>
 								</Condition>
 							</Dependency>
 						</Definition>
 					</Item>
 					<Item name="tmp_readfile" caption="Input Temporary File Name">
-						<Definition conditionType="constant" valueType="filename" option="false" default="Select File">
+						<Definition valueType="filename" option="false" default="Select File">
 							<Dependency>
 								<Condition type="isEqual" target="read_flag" value="1"/>
 								<Action type="enable"/>
@@ -1015,70 +1016,70 @@
 				</Items>
 			</Content>
 		</Tab>
-		
+
 		<Tab name="output_variables" caption="+Output variables">
 			<GroupBox caption="Flow">
 				<Item name="jop_vort" caption="Vorticity">
-					<Definition conditionType="constant" valueType="integer" option="true" default="0">
+					<Definition valueType="integer" default="0">
 						<Enumerations>
 							<Enumeration value="0" caption="Yes"/>
 							<Enumeration value="1" caption="No"/>
 						</Enumerations>
 						<Dependency>
 							<Condition type="and">
-							       <Condition type="isEqual" target="edition" value="1"/>
+								<Condition type="isEqual" target="edition" value="1"/>
 							</Condition>
 						</Dependency>
 					</Definition>
 				</Item>
 				<Item name="jop_fr" caption="Froude number">
-					<Definition conditionType="constant" valueType="integer" option="true" default="0">
+					<Definition valueType="integer" default="0">
 						<Enumerations>
 							<Enumeration value="0" caption="Yes"/>
 							<Enumeration value="1" caption="No"/>
 						</Enumerations>
 						<Dependency>
 							<Condition type="and">
-							       <Condition type="isEqual" target="edition" value="1"/>
+								<Condition type="isEqual" target="edition" value="1"/>
 							</Condition>
 						</Dependency>
 					</Definition>
 				</Item>
 				<Item name="jop_zmin" caption="Minimun bed elevation in the cross sections">
-					<Definition conditionType="constant" valueType="integer" option="true" default="0">
+					<Definition valueType="integer" default="0">
 						<Enumerations>
 							<Enumeration value="0" caption="Yes"/>
 							<Enumeration value="1" caption="No"/>
 						</Enumerations>
 						<Dependency>
 							<Condition type="and">
-							       <Condition type="isEqual" target="edition" value="1"/>
+								<Condition type="isEqual" target="edition" value="1"/>
 							</Condition>
 						</Dependency>
 					</Definition>
 				</Item>
 				<Item name="jop_zave" caption="Averaged bed elevation in the cross sections">
-					<Definition conditionType="constant" valueType="integer" option="true" default="0">
+					<Definition valueType="integer" default="0">
 						<Enumerations>
 							<Enumeration value="0" caption="Yes"/>
 							<Enumeration value="1" caption="No"/>
 						</Enumerations>
 						<Dependency>
 							<Condition type="and">
-							       <Condition type="isEqual" target="edition" value="1"/>
+								<Condition type="isEqual" target="edition" value="1"/>
 							</Condition>
 						</Dependency>
 					</Definition>
 				</Item>
 				<Item name="jop_have" caption="Averaged water level in the cross sections">
-					<Definition conditionType="constant" valueType="integer" option="true" default="0">
+					<Definition valueType="integer" default="0">
 						<Enumerations>
 							<Enumeration value="0" caption="Yes"/>
 							<Enumeration value="1" caption="No"/>
 						</Enumerations>
 						<Dependency>
 							<Condition type="and">
-							       <Condition type="isEqual" target="edition" value="1"/>
+								<Condition type="isEqual" target="edition" value="1"/>
 							</Condition>
 						</Dependency>
 					</Definition>
@@ -1086,83 +1087,83 @@
 			</GroupBox>
 			<GroupBox caption="Sediment transport and river bed evolution">
 				<Item name="jop_fb" caption="Elevation of fixed bed">
-					<Definition conditionType="constant" valueType="integer" option="true" default="0">
+					<Definition valueType="integer" default="0">
 						<Enumerations>
 							<Enumeration value="0" caption="Yes"/>
 							<Enumeration value="1" caption="No"/>
 						</Enumerations>
 						<Dependency>
 							<Condition type="and">
-							       <Condition type="isEqual" target="edition" value="1"/>
-							       <Condition type="isEqual" target="j_qbs" value="1"/>
+								<Condition type="isEqual" target="edition" value="1"/>
+								<Condition type="isEqual" target="j_qbs" value="1"/>
 							</Condition>
 						</Dependency>
 					</Definition>
 				</Item>
 				<Item name="jop_sh" caption="Shields number">
-					<Definition conditionType="constant" valueType="integer" option="true" default="0">
+					<Definition valueType="integer" default="0">
 						<Enumerations>
 							<Enumeration value="0" caption="Yes"/>
 							<Enumeration value="1" caption="No"/>
 						</Enumerations>
 						<Dependency>
 							<Condition type="and">
-							       <Condition type="isEqual" target="edition" value="1"/>
-							       <Condition type="isEqual" target="j_qbs" value="1"/>
+								<Condition type="isEqual" target="edition" value="1"/>
+								<Condition type="isEqual" target="j_qbs" value="1"/>
 							</Condition>
 						</Dependency>
 					</Definition>
 				</Item>
 				<Item name="jop_qb" caption="Bedload">
-					<Definition conditionType="constant" valueType="integer" option="true" default="0">
+					<Definition valueType="integer" default="0">
 						<Enumerations>
 							<Enumeration value="0" caption="Yes"/>
 							<Enumeration value="1" caption="No"/>
 						</Enumerations>
 						<Dependency>
 							<Condition type="and">
-							       <Condition type="isEqual" target="edition" value="1"/>
-							       <Condition type="isEqual" target="j_qbs" value="1"/>
+								<Condition type="isEqual" target="edition" value="1"/>
+								<Condition type="isEqual" target="j_qbs" value="1"/>
 							</Condition>
 						</Dependency>
 					</Definition>
 				</Item>
 				<Item name="jop_sc" caption="Suspended load concentration">
-					<Definition conditionType="constant" valueType="integer" option="true" default="0">
+					<Definition valueType="integer" default="0">
 						<Enumerations>
 							<Enumeration value="0" caption="Yes"/>
 							<Enumeration value="1" caption="No"/>
 						</Enumerations>
 						<Dependency>
 							<Condition type="and">
-							       <Condition type="isEqual" target="edition" value="1"/>
-							       <Condition type="isEqual" target="j_qbs" value="1"/>
-							       <Condition type="isEqual" target="j_qbqs" value="1"/>
+								<Condition type="isEqual" target="edition" value="1"/>
+								<Condition type="isEqual" target="j_qbs" value="1"/>
+								<Condition type="isEqual" target="j_qbqs" value="1"/>
 							</Condition>
 						</Dependency>
 					</Definition>
 				</Item>
 				<Item name="jop_md" caption="Mean diameter">
-					<Definition conditionType="constant" valueType="integer" option="true" default="0">
+					<Definition valueType="integer" default="0">
 						<Enumerations>
 							<Enumeration value="0" caption="Yes"/>
 							<Enumeration value="1" caption="No"/>
 						</Enumerations>
 						<Dependency>
 							<Condition type="and">
-							       <Condition type="isEqual" target="edition" value="1"/>
-							       <Condition type="isEqual" target="j_qbs" value="1"/>
-							       <Condition type="isEqual" target="j_mix" value="1"/>
+								<Condition type="isEqual" target="edition" value="1"/>
+								<Condition type="isEqual" target="j_qbs" value="1"/>
+								<Condition type="isEqual" target="j_mix" value="1"/>
 							</Condition>
 						</Dependency>
 					</Definition>
 				</Item>
 			</GroupBox>
 		</Tab>
-		
+
 	</CalculationCondition>
 	<GridRelatedCondition>
-			<!-- RMCD changed Bed Elevation to Elevation for consistency in MD_SWMS -->
+		<!-- RMCD changed Bed Elevation to Elevation for consistency in MD_SWMS -->
 		<Item name="Elevation" caption="Elevation (m)">
 			<Definition position="node" valueType="real" default="max" />
 		</Item>
@@ -1170,7 +1171,7 @@
 			<Definition position="node" valueType="real" default="max" />
 		</Item>
 		<Item name="Obstacle" caption="Obstacle">
-			<Definition position="cell" valueType="integer" default="0" option="true">
+			<Definition position="cell" valueType="integer" default="0">
 				<Enumerations>
 					<Enumeration value="0" caption="Normal cell" />
 					<Enumeration value="1" caption="Obstacle" />
@@ -1178,7 +1179,7 @@
 			</Definition>
 		</Item>
 		<Item name="Fix_movable" caption="Fixed or Movable Bed">
-			<Definition position="cell" valueType="integer" default="0" option="true">
+			<Definition position="cell" valueType="integer" default="0">
 				<Enumerations>
 					<Enumeration value="0" caption="Movable bed" />
 					<Enumeration value="1" caption="Fixed bed" />
@@ -1198,7 +1199,7 @@
 			</Definition>
 		</Item>
 		<Item name="mix_cell" caption="Grain size distribution">
-			<Definition position="cell" valueType="integer" default="0" option="true">
+			<Definition position="cell" valueType="integer" default="0">
 				<Enumerations>
 					<Enumeration value="0" caption="Region 1" />
 					<Enumeration value="1" caption="Region 2" />
@@ -1214,10 +1215,75 @@
 			</Definition>
 		</Item>
 		<Item name="grainsize_distribution" caption="GrainSizeDistribution">
-			<Definition position="node" valueType="functional" option="true">
+			<Definition position="node" valueType="functional">
 				<Parameter valueType="integer" caption="Size Class" />
 				<Value valueType="real" caption="Ratio" />
 			</Definition>
 		</Item>
+
+		<!-- 計算結果の定義 -->
+
+		<Output name="Discharge(m3s-1)" caption="Discharge(m3s-1)">
+		</Output>
+		<Output name="Velocity(ms-1)X" caption="Velocity(ms-1)X">
+			<Definition valueType="real" position="node" />
+		</Output>
+		<Output name="Velocity(ms-1)Y" caption="Velocity(ms-1)Y">
+			<Definition valueType="real" position="node" />
+		</Output>
+		<Output name="Depth(m)" caption="Water Depth(m)">
+			<Definition valueType="real" position="node" />
+		</Output>
+		<Output name="Elevation(m)" caption="Elevation(m)">
+			<Definition valueType="real" position="node" />
+		</Output>
+		<Output name="WaterSurfaceElevation(m)" caption="WaterSurfaceElevation(m)">
+			<Definition valueType="real" position="node" />
+		</Output>
+		<Output name="ShearStress(Nm-2)" caption="ShearStress(Nm-2)">
+			<Definition valueType="real" position="node" />
+		</Output>
+		<Output name="ElevationChange(m)" caption="ElevationChange(m)">
+			<Definition valueType="real" position="node" />
+			<ColorMapSetting transitionMode="0" valueMode="1" autoValueRange="true" minValue="0" maxValue="1" fillUppeer="true" fillLower="true" colorTableMinValue="0" visible="true" direction="1" barAutoWidth="false" barWidth="30" barAlign="2" title="title" autoNumberOfLabels="true" numberOfLabels="2" labelSkipRate="1" labelFormat="%5.2f" titleFont="Arial,14,-1,5,50,0,0,0,0,0,Regular" labelFont="Arial,14,-1,5,50,0,0,0,0,0,Regular" titleColor="#000000" labelColor="#000000" backgroundColor="#ffffff" backgroundOpacityEnabled="true" backgroundOpacityPercent="20" showBorder="true" position="7" horizontalMarginRatio="0" verticalMarginRatio="0.1" autoSize="true" width="300" height="200">
+				<Item value="0.000000" color="#0000ff" transparent="false"/>
+				<Item value="0.500000" color="#fffefe" transparent="false"/>
+				<Item value="1.000000" color="#ff0000" transparent="false"/>
+			</ColorMapSetting>
+		</Output>
+		<Output name="FixedBedElevation(m)" caption="FixedBedElevation(m)">
+			<Definition valueType="real" position="node" />
+		</Output>
+		<Output name="Vorticity(s-1)" caption="Vorticity(s-1)">
+			<Definition valueType="real" position="node" />
+		</Output>
+		<Output name="MeanDiameter(mm)" caption="MeanDiameter(mm)">
+			<Definition valueType="real" position="node" />
+		</Output>
+		<Output name="FroudeNumber" caption="FroudeNumber">
+			<Definition valueType="real" position="node" />
+		</Output>
+		<Output name="ShieldsNumber" caption="ShieldsNumber">
+			<Definition valueType="real" position="node" />
+		</Output>
+		<Output name="CrossSectionalMinBedElev(m)" caption="CrossSectionalMinBedElev(m)">
+			<Definition valueType="real" position="node" />
+		</Output>
+		<Output name="CrossSectionalAveBedElev(m)" caption="CrossSectionalAveBedElev(m)">
+			<Definition valueType="real" position="node" />
+		</Output>
+		<Output name="CrossSectionalAveWaterLevel(m)" caption="CrossSectionalAveWaterLevel(m)">
+			<Definition valueType="real" position="node" />
+		</Output>
+		<Output name="BedloadFlux(m2s-1)X" caption="BedloadFlux(m2s-1)X">
+			<Definition valueType="real" position="node" />
+		</Output>
+		<Output name="BedloadFlux(m2s-1)Y" caption="BedloadFlux(m2s-1)Y">
+			<Definition valueType="real" position="node" />
+		</Output>
+		<Output name="SuspendedSedimentConcentration" caption="SuspendedSedimentConcentration">
+			<Definition valueType="real" position="node" />
+		</Output>
+
 	</GridRelatedCondition>
 </SolverDefinition>
