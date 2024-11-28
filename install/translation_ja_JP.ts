@@ -5,7 +5,7 @@
 -->
     <context>
         <message>
-            <source>Nays2DH 1.0 64bit</source>
+            <source>Nays2DH iRIC.4x 1.0 64bit</source>
             <translation></translation>
         </message>
         <message>
@@ -191,6 +191,10 @@
         <message>
             <source>Given from time series data</source>
             <translation>時系列データで与える</translation>
+        </message>
+        <message>
+            <source>Free Outflow</source>
+            <translation>自由流出</translation>
         </message>
         <message>
             <source>   Constant value (m)</source>
@@ -511,26 +515,14 @@
         <message>
             <source>+Secondary flow</source>
             <translation>+二次流に関する設定</translation>
-	    </message>
-	    <message>
-	        <source>Strength of secondary flows for sediment transport</source>
-	        <translation>土砂移動に対する2次流強度</translation>
-	    </message>
-	    <message>
-	        <source>Use a transport equation of vorticity for calculating a secondary flow</source>
-	        <translation>二次流の計算を渦度方程式から行う</translation>
-	    </message>
-        <message>
-            <source>Secondary flow model</source>
-            <translation>二次流モデル</translation>
         </message>
         <message>
-            <source>Equilibrium model</source>
-            <translation>平衡モデル</translation>
+            <source>Strength of secondary flows for sediment transport</source>
+            <translation>土砂移動に対する2次流強度</translation>
         </message>
         <message>
-            <source>Non-equilibrium model</source>
-            <translation>非平衡モデル</translation>
+            <source>Use a transport equation of vorticity for calculating a secondary flow</source>
+            <translation>二次流の計算を渦度方程式から行う</translation>
         </message>
         <message>
             <source>+Others</source>
@@ -765,7 +757,7 @@
             <translation>植生高さ (m)</translation>
         </message>
         <message>
-            <source>Manning's roughness coefficient</source>
+            <source>Manning&apos;s roughness coefficient</source>
             <translation>マニングの粗度係数</translation>
         </message>
         <message>
@@ -825,20 +817,80 @@
             <translation></translation>
         </message>
         <message>
-            <source>Depth</source>
-            <translation></translation>
+            <source>Discharge(m3s-1)</source>
+            <translation>流量(m3s-1)</translation>
         </message>
         <message>
-            <source>Parameter1</source>
-            <translation></translation>
+            <source>Velocity(ms-1)X</source>
+            <translation>流速(ms-1)X</translation>
         </message>
         <message>
-            <source>Parameter2</source>
-            <translation></translation>
+            <source>Velocity(ms-1)Y</source>
+            <translation>流速(ms-1)Y</translation>
         </message>
         <message>
-            <source>Free Outflow</source>
-            <translation>自由流出</translation>
+            <source>Water Depth(m)</source>
+            <translation>水深(m)</translation>
+        </message>
+        <message>
+            <source>Elevation(m)</source>
+            <translation>地形高(m)</translation>
+        </message>
+        <message>
+            <source>WaterSurfaceElevation(m)</source>
+            <translation>水位(m)</translation>
+        </message>
+        <message>
+            <source>ShearStress(Nm-2)</source>
+            <translation>せん断応力</translation>
+        </message>
+        <message>
+            <source>ElevationChange(m)</source>
+            <translation>河床変動量(m)</translation>
+        </message>
+        <message>
+            <source>FixedBedElevation(m)</source>
+            <translation>固定床高さ(m)</translation>
+        </message>
+        <message>
+            <source>Vorticity(s-1)</source>
+            <translation>渦度(s-1)</translation>
+        </message>
+        <message>
+            <source>MeanDiameter(mm)</source>
+            <translation>平均直径(mm)</translation>
+        </message>
+        <message>
+            <source>FroudeNumber</source>
+            <translation>フルード数</translation>
+        </message>
+        <message>
+            <source>ShieldsNumber</source>
+            <translation>シールズ数</translation>
+        </message>
+        <message>
+            <source>CrossSectionalMinBedElev(m)</source>
+            <translation>横断最小地形高(m)</translation>
+        </message>
+        <message>
+            <source>CrossSectionalAveBedElev(m)</source>
+            <translation>横断平均地形高(m)</translation>
+        </message>
+        <message>
+            <source>CrossSectionalAveWaterLevel(m)</source>
+            <translation>横断平均水位(m)</translation>
+        </message>
+        <message>
+            <source>BedloadFlux(m2s-1)X</source>
+            <translation>掃流砂量(m2s-1)X</translation>
+        </message>
+        <message>
+            <source>BedloadFlux(m2s-1)Y</source>
+            <translation>掃流砂量(m2s-1)Y</translation>
+        </message>
+        <message>
+            <source>SuspendedSedimentConcentration</source>
+            <translation>浮遊砂濃度</translation>
         </message>
     </context>
 </TS>
