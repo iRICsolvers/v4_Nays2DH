@@ -1700,7 +1700,7 @@ contains
        else if(j_conf.ge.2) then
           h_a_t2(j_t1+js1)=h_a(nxm_t)
           do j=j_t1+js1+jxd,j_t2+js2,jxd
-             dxf=(ds(nxm_t,j-jxd)+ds(nxm_t,j))*0.5d0
+             dxf=(dn(nxm_t,j-jxd)+dn(nxm_t,j))*0.5d0
              if(i_flow.eq.0) then
                 h_a_t2(j)=h_a_t2(j-jxd)+h_slope_t*dxf
              else
@@ -2285,7 +2285,7 @@ contains
                    yv( i,j) = 0.d0
                 end if
                 q_et(i,j)=yv(i,j)*(hs(i,j)+hs(i,j+1))/(sj(i,j)+sj(i,j+1))
-                qv(  i,j)=yv(i,j)/et_r_vp(i,j)*(hs(i,j)+hs(i,j+1))*.5d0*dn(i,j)
+                qv(  i,j)=yv(i,j)/et_r_vp(i,j)*(hs(i,j)+hs(i,j+1))*.5d0*ds(i,j)
                 qc_t2(j) =qc_t2(j) + qv(i,j)
              end do
           end if
@@ -6481,7 +6481,7 @@ contains
              hs1=hh-eta(i,j_t2+js2)
              
              if(hs1.gt.0. .and. ijo_in(i,j_t2+js2)==0 ) then
-                as=hs1*dn(i,j_t2+js2)
+                as=hs1*ds(i,j_t2+js2)
                 u0=1.d0/snmm(i,j_t2+js2)*hs1**(2.d0/3.d0)*dsqrt(slope_up_t)
                 qs=as*u0
                 qcc=qcc+qs
@@ -6714,7 +6714,7 @@ contains
 					do i=i_t1+1,i_t2
 						hs1 = hh-eta(i,j_t2+js2)
 						if( hs1>hmin .and. ijo_in(i,j_t2+js2)==0 ) then
-							as = hs1*dn(i,j_t2+js2)
+							as = hs1*ds(i,j_t2+js2)
 							u0 = 1.d0/snmm(i,j_t2+js2)*hs1**(2.d0/3.d0)*dsqrt(slope_up_t)
 							qs = as*u0
 							qcc = qcc+qs
@@ -6926,7 +6926,7 @@ contains
 		 do j=1, ny
 			hn(nx,j) = h(  nx-1,j)
 			if(ijo_in(nx,j) == 0) then
-				hs(nx,j) = hnx - eta(nx,j)
+				hs(nx,j) = hn(nx,j) - eta(nx,j)
 				if(hs(nx,j) < hmin)    hs(nx,j) = 0.d0
 				h( nx,j) = eta(nx,j) + hs(nx,j)
 				hn(nx,j) = h(  nx,j)
