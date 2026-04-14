@@ -892,5 +892,21 @@
             <source>SuspendedSedimentConcentration</source>
             <translation>浮遊砂濃度</translation>
         </message>
+        <message>
+            <source>Permeability in i-direction</source>
+            <translation>i方向格子辺の透過度</translation>
+        </message>
+        <message>
+            <source>Permeability in j-direction</source>
+            <translation>j方向格子辺の透過度</translation>
+        </message>
+        <message>
+            <source>Peameable</source>
+            <translation>透過</translation>
+        </message>
+        <message>
+            <source>Impermeable</source>
+            <translation>不透過</translation>
+        </message>
     </context>
 </TS>

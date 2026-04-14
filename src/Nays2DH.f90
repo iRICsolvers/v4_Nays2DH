@@ -133,7 +133,7 @@ end module common_cmet
 module common_cmsui
 	implicit none
 	integer,dimension(:,:),allocatable :: ijobst, ijo_in, ij_frg, ij_ero
-	integer,dimension(:,:),allocatable :: ijobst_u, ijobst_v
+	integer,dimension(:,:),allocatable :: iface, jface
 end module common_cmsui
 
 !--------------------------------------------------
@@ -389,7 +389,7 @@ contains
 		allocate( kc(0:i,0:j), btheta_x(0:i,0:j), btheta_y(0:i,0:j), cos_bed(0:i,0:j), sin_bed(0:i,0:j) )
 		allocate( eta_t(0:i,0:j) )
 		allocate( ijobst(0:i,0:j), ijo_in(0:i,0:j), ij_frg(0:i,0:j), ij_ero(0:i,0:j) )
-		allocate( ijobst_u(0:i,0:j), ijobst_v(0:i,0:j) )
+		allocate( iface(0:i,0:j), jface(0:i,0:j) )
 		allocate( snmm(0:i,0:j), sn_up(0:i,0:j), sn_vp(0:i,0:j) )
 		allocate( xi_x0(0:i,0:j), xi_y0(0:i,0:j),et_x0(0:i,0:j), et_y0(0:i,0:j),	 sj0(0:i,0:j), hsxx(0:i,0:j) )
 		allocate( yk(0:i,0:j),ykn(0:i,0:j), yep(0:i,0:j),yepn(0:i,0:j), gkx(0:i,0:j), gky(0:i,0:j), gex(0:i,0:j),gey(0:i,0:j) )
@@ -522,7 +522,8 @@ contains
 		sr=0.d0; cos_t=0.d0
 		qb_xi=0.d0; qb_et=0.d0
 		eta_t=0.d0
-		ijobst=0; ijo_in=0; ij_frg=0; ij_ero=0; ijobst_u = 0; ijobst_v = 0
+		ijobst=0; ijo_in=0; ij_frg=0; ij_ero=0; 
+		iface = 0; jface = 0
 		snmm=0.d0; sn_up=0.d0; sn_vp=0.d0
 		xi_x0=0.d0; xi_y0=0.d0; et_x0=0.d0; et_y0=0.d0; sj0=0.d0; hsxx=0.d0
 		yk=0.d0; ykn=0.d0; yep=0.d0; yepn=0.d0; gkx=0.d0; gky=0.d0; gex=0.d0; gey=0.d0
@@ -683,7 +684,7 @@ contains
 		do i = 0, nx
 			chb(i) = 0.d0
 			do j = 1, ny
-				if( ijobst(i,j) * ijobst(i,j-1) == 0 ) then
+				if( iface(i,j) == 1 ) then
 					dnx = dsqrt( (x(i,j)-x(i,j-1))**2 + (y(i,j)-y(i,j-1) )**2 )
 					chb(i) = chb(i) + dnx
 				end if
@@ -913,7 +914,7 @@ contains
 				jss2=ny
 			end if
 			do j=jss1,jss2
-				if(ijobst(i,j)*ijobst(i,j-1).eq.0) then
+				if(iface(i,j) == 1) then
 					dnx=dsqrt((x(i,j)-x(i,j-1))**2+(y(i,j)-y(i,j-1))**2)
 					chb(i)=chb(i)+dnx
 				end if
@@ -929,7 +930,7 @@ contains
 			do i=0,i_t1
 				chb_t(i)=0.d0
 				do j=j_t1+1,j_t2
-					if(ijobst(i,j)*ijobst(i,j-1).eq.0) then
+					if(iface(i,j) == 1) then
 						dnx=dsqrt((x(i,j)-x(i,j-1))**2+(y(i,j)-y(i,j-1))**2)
 						chb_t(i)=chb_t(i)+dnx
 					end if
@@ -943,7 +944,7 @@ contains
 			do j=j_t1,j_t2,jxd
 				chb_t2(j)=0.d0
 				do i=i_t1+1,i_t2
-					if(ijobst(i,j)*ijobst(i-1,j).eq.0) then
+					if(jface(i,j) == 1) then
 						dny=dsqrt((x(i,j)-x(i-1,j))**2+(y(i,j)-y(i-1,j))**2)
 						chb_t2(j)=chb_t2(j)+dny
 					end if
@@ -1280,7 +1281,7 @@ contains
 !$omp do private(i,j)
 		do j=1,ny
 			do i=0,nx
-				u(i,j) = u(i,j)*ijobst_u(i,j)
+				u(i,j) = u(i,j)*iface(i,j)
 			end do
 		end do
 	end subroutine bound_u
@@ -1335,7 +1336,7 @@ contains
 !$omp do private(i,j)
 		do j=0,ny
 			do i=1,nx
-				v(i,j) = v(i,j)*ijobst_v(i,j)
+				v(i,j) = v(i,j)*jface(i,j)
 			end do
 		end do
 
@@ -2114,7 +2115,7 @@ contains
              uti(i,j) = 0.d0
              yu( i,j) = 0.d0
           end if
-          if( ijobst(i,j) == 1.and.ijobst(i,j-1) == 1 ) then
+          if( iface(i,j) == 0 ) then
              uti(i,j) = 0.d0
              yu( i,j) = 0.d0
           end if
@@ -2141,7 +2142,7 @@ contains
                 uti(i,j)=0.d0
                 yu(i,j)=0.d0
              end if
-             if(ijobst(i,j).eq.1.and.ijobst(i,j-1).eq.1) then
+             if(iface(i,j) == 0) then
                 uti(i,j)=0.d0
                 yu(i,j)=0.d0
              end if
@@ -2167,7 +2168,7 @@ contains
                 vti(i,j)=0.d0
                 yv(i,j)=0.d0
              end if
-             if(ijobst(i,j).eq.1.and.ijobst(i-1,j).eq.1) then
+             if(jface(i,j) == 0) then
                 vti(i,j)=0.d0
                 yv(i,j)=0.d0
              end if
@@ -2222,7 +2223,7 @@ contains
              yu(i,j) = yu(i,j) / qdiff
              if(hs(i  ,j) <= hmin.and.yun(i,j) > 0.) yu(i,j)=0.d0
              if(hs(i+1,j) <= hmin.and.yun(i,j) < 0.) yu(i,j)=0.d0
-             if(ijobst(i,j) == 1.and.ijobst(i,j-1) == 1) then
+             if(iface(i,j) == 0) then
                 uti(i,j) = 0.d0
                 yu( i,j) = 0.d0
              end if
@@ -2252,7 +2253,7 @@ contains
                 yu(i,j) = yu(i,j) / qdiff
                 if(hs(i  ,j) <= hmin.and.yun(i,j) > 0.d0) yu(i,j)=0.d0
                 if(hs(i+1,j) <= hmin.and.yun(i,j) < 0.d0) yu(i,j)=0.d0
-                if(ijobst(i,j) == 1.and.ijobst(i,j-1) == 1) then
+                if(jface(i,j) == 0) then
                    uti(i,j) = 0.d0
                    yu( i,j) = 0.d0
                 end if
@@ -2280,7 +2281,7 @@ contains
                 yv(i,j) = yv(i,j) / qdiff
                 if(hs(i,j  ) <= hmin.and.yvn(i,j)*jxd > 0.d0) yv(i,j)=0.d0
                 if(hs(i,j+1) <= hmin.and.yvn(i,j)*jxd < 0.d0) yv(i,j)=0.d0
-                if(ijobst(i,j) == 1.and.ijobst(i-1,j) == 1) then
+                if(jface(i,j) == 0) then
                    vti(i,j) = 0.d0
                    yv( i,j) = 0.d0
                 end if
@@ -2869,7 +2870,7 @@ module hcal_m
 
 						f_xi = - c_xi_shear * vv_up
 
-						if( ijo_in(i,j) == 1.or.ijo_in(i+1,j) == 1 ) then
+						if( iface(i,j) == 0 ) then
 							dhdxi = 0.d0
 						else if( ( eta(i,j) > eta(i+1,j).and. &
 								hs(i  ,j) <= hmin2.and.hn(i+1,j) < eta(i  ,j) ).or. &
@@ -2971,7 +2972,7 @@ module hcal_m
 
 						f_et = - c_et_shear * vv_vp
 
-						if(ijo_in(i,j) == 1.or.ijo_in(i,j+1) == 1) then
+						if(jface(i,j) == 0) then
 							dhdet = 0.d0
 						else if((eta(i,j) > eta(i,j+1).and. &
 								hs(i,j  ) <= hmin2.and.hn(i,j+1) < eta(i,j  ) ).or. &
@@ -3412,7 +3413,7 @@ contains
 		do j=2,ny-1
 			do i=1,nx-1
 				guy(i,j) = (guy(i,j)+(-yun(i,j-1)+yun(i,j+1)	&
-								+yu(i,j-1)-yu(i,j+1))*0.5d0*r_det)*ijobst_u(i,j)
+								+yu(i,j-1)-yu(i,j+1))*0.5d0*r_det)*iface(i,j)
 			end do
 		end do
 
@@ -3437,7 +3438,7 @@ contains
 		do j=1,ny-1
 			do i=2,nx-1
 					gvx(i,j) = (gvx(i,j)+(-yvn(i-1,j)+yvn(i+1,j)	&
-									+yv(i-1,j)-yv(i+1,j))*0.5d0*r_dxi)*ijobst_v(i,j)
+									+yv(i-1,j)-yv(i+1,j))*0.5d0*r_dxi)*jface(i,j)
 			end do
 		end do
 
@@ -4493,16 +4494,16 @@ module vorticity_eq_m
 !$omp do private(i,j)
 		do j=1,ny
 			do i=0,nx
-				uxi_surf_up(i,j) = ( uxi_surf(i,j)+ uxi_surf(i+1,j))*0.5d0*ijobst_u(i,j)
-				uxi_bed_up (i,j) = (  uxi_bed(i,j)+  uxi_bed(i+1,j))*0.5d0*ijobst_u(i,j)
+				uxi_surf_up(i,j) = ( uxi_surf(i,j)+ uxi_surf(i+1,j))*0.5d0*iface(i,j)
+				uxi_bed_up (i,j) = (  uxi_bed(i,j)+  uxi_bed(i+1,j))*0.5d0*iface(i,j)
 			end do
 		end do
 		
 !$omp do private(i,j)
 		do j=1,ny-1
 			do i=1,nx
-				uet_surf_vp (i,j) = ( uet_surf(i,j)+ uet_surf(i,j+1))*0.5d0*ijobst_v(i,j)
-				uet_bed_vp  (i,j) = (  uet_bed(i,j)+  uet_bed(i,j+1))*0.5d0*ijobst_v(i,j)
+				uet_surf_vp (i,j) = ( uet_surf(i,j)+ uet_surf(i,j+1))*0.5d0*jface(i,j)
+				uet_bed_vp  (i,j) = (  uet_bed(i,j)+  uet_bed(i,j+1))*0.5d0*jface(i,j)
 			end do
 		end do
 		
@@ -9488,7 +9489,7 @@ contains
 			do k=1,nk
 				do i=1,nx-1
 					quck(i,j,k) = (  (q_xi(i,j)+dabs(q_xi(i,j)))*yck(i  ,j,k)	&
-										 +(q_xi(i,j)-dabs(q_xi(i,j)))*yck(i+1,j,k)  )*ijobst_u(i,j)*0.5d0
+										 +(q_xi(i,j)-dabs(q_xi(i,j)))*yck(i+1,j,k)  )*iface(i,j)*0.5d0
 
 				end do
 			end do
@@ -9507,7 +9508,7 @@ contains
 			do k=1,nk
 				do i=1,nx
 					qvck(i,j,k) = (  (q_et(i,j)+dabs(q_et(i,j)))*yck(i,  j,k)	&
-										 +(q_et(i,j)-dabs(q_et(i,j)))*yck(i,j+1,k)  )*ijobst_v(i,j)*0.5d0
+										 +(q_et(i,j)-dabs(q_et(i,j)))*yck(i,j+1,k)  )*jface(i,j)*0.5d0
 				end do
 			end do
 		end do
@@ -10366,6 +10367,7 @@ Program Shimizu
   !ccccccccccccccccccccccccccccccccccccccccccccccccccccccc
   !
   integer(4), dimension(:,:), pointer :: obst4, fm4, mix_cell
+  integer(4), dimension(:,:), pointer :: iface4, jface4
   real(8)   , dimension(:,:), pointer :: x8, y8, z8, hs8, zb8
   real(8)   , dimension(:,:), pointer :: vege4, roughness4, vegeh
   integer(4) ni4,nj4,iobst4
@@ -10430,6 +10432,8 @@ Program Shimizu
      
      allocate (obst4(     ni4-1, nj4-1))
      allocate (fm4(       ni4-1, nj4-1))
+	 allocate (iface4(    ni4,   nj4-1))
+	 allocate (jface4(    ni4-1, nj4  ))
      allocate (vege4(     ni4-1, nj4-1))
      allocate (roughness4(ni4-1, nj4-1))
      allocate (vegeh     (ni4-1, nj4-1))
@@ -10438,6 +10442,8 @@ Program Shimizu
      call cg_iric_read_grid_real_node(fid,'Elevation', z8, ier)
      call cg_iric_read_grid_real_node(fid,'Elevation_zb', zb8, ier)
      call cg_iric_read_grid_integer_cell(fid,'Obstacle', obst4, ier)
+     call cg_iric_read_grid_integer_iface(fid,"Permeability_i", iface4, ier)
+     call cg_iric_read_grid_integer_jface(fid,"Permeability_j", jface4, ier)
      call cg_iric_read_grid_integer_cell(fid,'Fix_movable', fm4, ier)
      call cg_iric_read_grid_real_cell(fid,'vege_density', vege4, ier)
      call cg_iric_read_grid_real_cell(fid,'vege_height', vegeh, ier)
@@ -10953,13 +10959,43 @@ Program Shimizu
          end if
       end do
    end do
+   
+!----- iface, jface 
+
+      do i=1,ni4
+       do j=1,nj4-1
+        iface(i-1,j)=1-iface4(i,j)
+       end do
+      end do
+
+      do i=1,ni4-1
+       do j=1,nj4
+        jface(i,j-1)=1-jface4(i,j)
+       end do
+      end do
+	  
+	do j=1,ny
+		do i=0,nx
+			if( iface(i,j)==0 ) then
+				ijobst(i,j  ) = 1
+				ijobst(i,j-1) = 1
+			end if
+		end do
+	end do
+
+	do j=0,ny
+		do i=1,nx
+			if( jface(i,j)==0 ) then
+				ijobst(i  ,j) = 1
+				ijobst(i-1,j) = 1
+			end if
+		end do
+	end do
 
 	do j=1,ny
 		do i=0,nx
 			if( ijobst(i,j)==1 .and. ijobst(i,j-1)==1 ) then
-				ijobst_u(i,j) = 0
-			else
-				ijobst_u(i,j) = 1
+				iface(i,j) = 0
 			end if
 		end do
 	end do
@@ -10967,9 +11003,7 @@ Program Shimizu
 	do j=0,ny
 		do i=1,nx
 			if( ijobst(i,j)==1 .and. ijobst(i-1,j)==1 ) then
-				ijobst_v(i,j) = 0
-			else
-				ijobst_v(i,j) = 1
+				jface(i,j) = 0
 			end if
 		end do
 	end do

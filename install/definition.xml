@@ -3,9 +3,9 @@
 xmlns="www.iric.net/SolverDefinition/1.0" 
 name="Nays2DH" 
 caption="Nays2DH iRIC.4x 1.0 64bit" 
-version="1.6.008" 
+version="1.7.000" 
 copyright="Yasuyuki SHIMIZU and Hiroshi TAKEBAYASHI" 
-release="2022.7.13" 
+release="2026.4.15" 
 homepage="http://i-ric.org" 
 executable="Nays2DH.exe" 
 iterationtype="time" 
@@ -1219,6 +1219,24 @@ gridtype="structured2d"
 				<Parameter valueType="integer" caption="Size Class" />
 				<Value valueType="real" caption="Ratio" />
 			</Definition>
+		</Item>
+
+		<Item name="Permeability_i" caption="Permeability in i-direction">
+		<Definition valueType="integer" position="iface" default="0">
+			<Enumerations>
+                <Enumeration value="0" caption="Peameable" />
+                <Enumeration value="1" caption="Impermeable" />
+            </Enumerations>
+		</Definition>
+		</Item>
+
+		<Item name="Permeability_j" caption="Permeability in j-direction">
+		<Definition valueType="integer" position="jface" default="0">
+			<Enumerations>
+                <Enumeration value="0" caption="Peameable" />
+                <Enumeration value="1" caption="Impermeable" />
+            </Enumerations>
+		</Definition>
 		</Item>
 
 		<!-- 計算結果の定義 -->

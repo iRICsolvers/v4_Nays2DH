@@ -18,6 +18,96 @@ module iric
 
   integer, parameter:: IRIC_CANCELED = 1
 
+  interface cg_iric_read_bc_indices_withgridid
+    module procedure cg_iric_read_bc_indices_withgridid_1d
+    module procedure cg_iric_read_bc_indices_withgridid_2d
+    module procedure cg_iric_read_bc_indices_withgridid_3d
+  end interface
+
+  interface cg_iric_read_bc_functional_withgridid
+    module procedure cg_iric_read_bc_functional_withgridid_1d
+    module procedure cg_iric_read_bc_functional_withgridid_2d
+    module procedure cg_iric_read_bc_functional_withgridid_3d
+  end interface
+
+  interface cg_iric_read_bc_functionalwithname_withgridid
+    module procedure cg_iric_read_bc_functionalwithname_withgridid_1d
+    module procedure cg_iric_read_bc_functionalwithname_withgridid_2d
+    module procedure cg_iric_read_bc_functionalwithname_withgridid_3d
+  end interface
+
+  interface cg_iric_read_bc_functional_realsingle_withgridid
+    module procedure cg_iric_read_bc_functional_realsingle_withgridid_1d
+    module procedure cg_iric_read_bc_functional_realsingle_withgridid_2d
+    module procedure cg_iric_read_bc_functional_realsingle_withgridid_3d
+  end interface
+
+  interface cg_iric_read_bc_functionalwithname_realsingle_withgridid
+    module procedure cg_iric_read_bc_functionalwithname_realsingle_withgridid_1d
+    module procedure cg_iric_read_bc_functionalwithname_realsingle_withgridid_2d
+    module procedure cg_iric_read_bc_functionalwithname_realsingle_withgridid_3d
+  end interface
+
+  interface cg_iric_write_bc_indices_withgridid
+    module procedure cg_iric_write_bc_indices_withgridid_1d
+    module procedure cg_iric_write_bc_indices_withgridid_2d
+    module procedure cg_iric_write_bc_indices_withgridid_3d
+  end interface
+
+  interface cg_iric_write_bc_indices2_withgridid
+    module procedure cg_iric_write_bc_indices2_withgridid_1d
+    module procedure cg_iric_write_bc_indices2_withgridid_2d
+    module procedure cg_iric_write_bc_indices2_withgridid_3d
+  end interface
+
+  interface cg_iric_write_bc_functional_withgridid
+    module procedure cg_iric_write_bc_functional_withgridid_1d
+    module procedure cg_iric_write_bc_functional_withgridid_2d
+    module procedure cg_iric_write_bc_functional_withgridid_3d
+  end interface
+
+  interface cg_iric_write_bc_functionalwithname_withgridid
+    module procedure cg_iric_write_bc_functionalwithname_withgridid_1d
+    module procedure cg_iric_write_bc_functionalwithname_withgridid_2d
+    module procedure cg_iric_write_bc_functionalwithname_withgridid_3d
+  end interface
+
+  interface cg_iric_read_functional
+    module procedure cg_iric_read_functional_1d
+    module procedure cg_iric_read_functional_2d
+    module procedure cg_iric_read_functional_3d
+  end interface
+
+  interface cg_iric_read_functionalwithname
+    module procedure cg_iric_read_functionalwithname_1d
+    module procedure cg_iric_read_functionalwithname_2d
+    module procedure cg_iric_read_functionalwithname_3d
+  end interface
+
+  interface cg_iric_read_functional_realsingle
+    module procedure cg_iric_read_functional_realsingle_1d
+    module procedure cg_iric_read_functional_realsingle_2d
+    module procedure cg_iric_read_functional_realsingle_3d
+  end interface
+
+  interface cg_iric_read_functionalwithname_realsingle
+    module procedure cg_iric_read_functionalwithname_realsingle_1d
+    module procedure cg_iric_read_functionalwithname_realsingle_2d
+    module procedure cg_iric_read_functionalwithname_realsingle_3d
+  end interface
+
+  interface cg_iric_write_functional
+    module procedure cg_iric_write_functional_1d
+    module procedure cg_iric_write_functional_2d
+    module procedure cg_iric_write_functional_3d
+  end interface
+
+  interface cg_iric_write_functionalwithname
+    module procedure cg_iric_write_functionalwithname_1d
+    module procedure cg_iric_write_functionalwithname_2d
+    module procedure cg_iric_write_functionalwithname_3d
+  end interface
+
   interface cg_iric_read_grid_complex_node_withgridid
     module procedure cg_iric_read_grid_complex_node_withgridid_1d
     module procedure cg_iric_read_grid_complex_node_withgridid_2d
@@ -30,6 +120,18 @@ module iric
     module procedure cg_iric_read_grid_complex_cell_withgridid_3d
   end interface
 
+  interface cg_iric_read_grid_complex_iface_withgridid
+    module procedure cg_iric_read_grid_complex_iface_withgridid_1d
+    module procedure cg_iric_read_grid_complex_iface_withgridid_2d
+    module procedure cg_iric_read_grid_complex_iface_withgridid_3d
+  end interface
+
+  interface cg_iric_read_grid_complex_jface_withgridid
+    module procedure cg_iric_read_grid_complex_jface_withgridid_1d
+    module procedure cg_iric_read_grid_complex_jface_withgridid_2d
+    module procedure cg_iric_read_grid_complex_jface_withgridid_3d
+  end interface
+
   interface cg_iric_write_grid_complex_node_withgridid
     module procedure cg_iric_write_grid_complex_node_withgridid_1d
     module procedure cg_iric_write_grid_complex_node_withgridid_2d
@@ -40,6 +142,18 @@ module iric
     module procedure cg_iric_write_grid_complex_cell_withgridid_1d
     module procedure cg_iric_write_grid_complex_cell_withgridid_2d
     module procedure cg_iric_write_grid_complex_cell_withgridid_3d
+  end interface
+
+  interface cg_iric_write_grid_complex_iface_withgridid
+    module procedure cg_iric_write_grid_complex_iface_withgridid_1d
+    module procedure cg_iric_write_grid_complex_iface_withgridid_2d
+    module procedure cg_iric_write_grid_complex_iface_withgridid_3d
+  end interface
+
+  interface cg_iric_write_grid_complex_jface_withgridid
+    module procedure cg_iric_write_grid_complex_jface_withgridid_1d
+    module procedure cg_iric_write_grid_complex_jface_withgridid_2d
+    module procedure cg_iric_write_grid_complex_jface_withgridid_3d
   end interface
 
   interface cg_iric_read_grid2d_coords_withgridid
@@ -76,6 +190,30 @@ module iric
     module procedure cg_iric_read_grid_integer_cell_withgridid_3d
   end interface
 
+  interface cg_iric_read_grid_real_iface_withgridid
+    module procedure cg_iric_read_grid_real_iface_withgridid_1d
+    module procedure cg_iric_read_grid_real_iface_withgridid_2d
+    module procedure cg_iric_read_grid_real_iface_withgridid_3d
+  end interface
+
+  interface cg_iric_read_grid_integer_iface_withgridid
+    module procedure cg_iric_read_grid_integer_iface_withgridid_1d
+    module procedure cg_iric_read_grid_integer_iface_withgridid_2d
+    module procedure cg_iric_read_grid_integer_iface_withgridid_3d
+  end interface
+
+  interface cg_iric_read_grid_real_jface_withgridid
+    module procedure cg_iric_read_grid_real_jface_withgridid_1d
+    module procedure cg_iric_read_grid_real_jface_withgridid_2d
+    module procedure cg_iric_read_grid_real_jface_withgridid_3d
+  end interface
+
+  interface cg_iric_read_grid_integer_jface_withgridid
+    module procedure cg_iric_read_grid_integer_jface_withgridid_1d
+    module procedure cg_iric_read_grid_integer_jface_withgridid_2d
+    module procedure cg_iric_read_grid_integer_jface_withgridid_3d
+  end interface
+
   interface cg_iric_read_grid_functional_integer_node_withgridid
     module procedure cg_iric_read_grid_functional_integer_node_withgridid_1d
     module procedure cg_iric_read_grid_functional_integer_node_withgridid_2d
@@ -100,6 +238,30 @@ module iric
     module procedure cg_iric_read_grid_functional_real_cell_withgridid_3d
   end interface
 
+  interface cg_iric_read_grid_functional_integer_iface_withgridid
+    module procedure cg_iric_read_grid_functional_integer_iface_withgridid_1d
+    module procedure cg_iric_read_grid_functional_integer_iface_withgridid_2d
+    module procedure cg_iric_read_grid_functional_integer_iface_withgridid_3d
+  end interface
+
+  interface cg_iric_read_grid_functional_real_iface_withgridid
+    module procedure cg_iric_read_grid_functional_real_iface_withgridid_1d
+    module procedure cg_iric_read_grid_functional_real_iface_withgridid_2d
+    module procedure cg_iric_read_grid_functional_real_iface_withgridid_3d
+  end interface
+
+  interface cg_iric_read_grid_functional_integer_jface_withgridid
+    module procedure cg_iric_read_grid_functional_integer_jface_withgridid_1d
+    module procedure cg_iric_read_grid_functional_integer_jface_withgridid_2d
+    module procedure cg_iric_read_grid_functional_integer_jface_withgridid_3d
+  end interface
+
+  interface cg_iric_read_grid_functional_real_jface_withgridid
+    module procedure cg_iric_read_grid_functional_real_jface_withgridid_1d
+    module procedure cg_iric_read_grid_functional_real_jface_withgridid_2d
+    module procedure cg_iric_read_grid_functional_real_jface_withgridid_3d
+  end interface
+
   interface cg_iric_write_grid2d_coords_withgridid
     module procedure cg_iric_write_grid2d_coords_withgridid_1d
     module procedure cg_iric_write_grid2d_coords_withgridid_2d
@@ -108,6 +270,16 @@ module iric
   interface cg_iric_write_grid3d_coords_withgridid
     module procedure cg_iric_write_grid3d_coords_withgridid_1d
     module procedure cg_iric_write_grid3d_coords_withgridid_3d
+  end interface
+
+  interface cg_iric_write_namedgrid2d_coords_withgridid
+    module procedure cg_iric_write_namedgrid2d_coords_withgridid_1d
+    module procedure cg_iric_write_namedgrid2d_coords_withgridid_2d
+  end interface
+
+  interface cg_iric_write_namedgrid3d_coords_withgridid
+    module procedure cg_iric_write_namedgrid3d_coords_withgridid_1d
+    module procedure cg_iric_write_namedgrid3d_coords_withgridid_3d
   end interface
 
   interface cg_iric_write_grid_real_node_withgridid
@@ -134,6 +306,120 @@ module iric
     module procedure cg_iric_write_grid_integer_cell_withgridid_3d
   end interface
 
+  interface cg_iric_write_grid_real_iface_withgridid
+    module procedure cg_iric_write_grid_real_iface_withgridid_1d
+    module procedure cg_iric_write_grid_real_iface_withgridid_2d
+    module procedure cg_iric_write_grid_real_iface_withgridid_3d
+  end interface
+
+  interface cg_iric_write_grid_integer_iface_withgridid
+    module procedure cg_iric_write_grid_integer_iface_withgridid_1d
+    module procedure cg_iric_write_grid_integer_iface_withgridid_2d
+    module procedure cg_iric_write_grid_integer_iface_withgridid_3d
+  end interface
+
+  interface cg_iric_write_grid_real_jface_withgridid
+    module procedure cg_iric_write_grid_real_jface_withgridid_1d
+    module procedure cg_iric_write_grid_real_jface_withgridid_2d
+    module procedure cg_iric_write_grid_real_jface_withgridid_3d
+  end interface
+
+  interface cg_iric_write_grid_integer_jface_withgridid
+    module procedure cg_iric_write_grid_integer_jface_withgridid_1d
+    module procedure cg_iric_write_grid_integer_jface_withgridid_2d
+    module procedure cg_iric_write_grid_integer_jface_withgridid_3d
+  end interface
+
+  interface cg_iric_read_complex_functional
+    module procedure cg_iric_read_complex_functional_1d
+    module procedure cg_iric_read_complex_functional_2d
+    module procedure cg_iric_read_complex_functional_3d
+  end interface
+
+  interface cg_iric_read_complex_functionalwithname
+    module procedure cg_iric_read_complex_functionalwithname_1d
+    module procedure cg_iric_read_complex_functionalwithname_2d
+    module procedure cg_iric_read_complex_functionalwithname_3d
+  end interface
+
+  interface cg_iric_read_complex_functional_realsingle
+    module procedure cg_iric_read_complex_functional_realsingle_1d
+    module procedure cg_iric_read_complex_functional_realsingle_2d
+    module procedure cg_iric_read_complex_functional_realsingle_3d
+  end interface
+
+  interface cg_iric_read_complex_functionalwithname_realsingle
+    module procedure cg_iric_read_complex_functionalwithname_realsingle_1d
+    module procedure cg_iric_read_complex_functionalwithname_realsingle_2d
+    module procedure cg_iric_read_complex_functionalwithname_realsingle_3d
+  end interface
+
+  interface cg_iric_write_complex_functional
+    module procedure cg_iric_write_complex_functional_1d
+    module procedure cg_iric_write_complex_functional_2d
+    module procedure cg_iric_write_complex_functional_3d
+  end interface
+
+  interface cg_iric_write_complex_functionalwithname
+    module procedure cg_iric_write_complex_functionalwithname_1d
+    module procedure cg_iric_write_complex_functionalwithname_2d
+    module procedure cg_iric_write_complex_functionalwithname_3d
+  end interface
+
+  interface cg_iric_read_bc_indices
+    module procedure cg_iric_read_bc_indices_1d
+    module procedure cg_iric_read_bc_indices_2d
+    module procedure cg_iric_read_bc_indices_3d
+  end interface
+
+  interface cg_iric_read_bc_functional
+    module procedure cg_iric_read_bc_functional_1d
+    module procedure cg_iric_read_bc_functional_2d
+    module procedure cg_iric_read_bc_functional_3d
+  end interface
+
+  interface cg_iric_read_bc_functionalwithname
+    module procedure cg_iric_read_bc_functionalwithname_1d
+    module procedure cg_iric_read_bc_functionalwithname_2d
+    module procedure cg_iric_read_bc_functionalwithname_3d
+  end interface
+
+  interface cg_iric_read_bc_functional_realsingle
+    module procedure cg_iric_read_bc_functional_realsingle_1d
+    module procedure cg_iric_read_bc_functional_realsingle_2d
+    module procedure cg_iric_read_bc_functional_realsingle_3d
+  end interface
+
+  interface cg_iric_read_bc_functionalwithname_realsingle
+    module procedure cg_iric_read_bc_functionalwithname_realsingle_1d
+    module procedure cg_iric_read_bc_functionalwithname_realsingle_2d
+    module procedure cg_iric_read_bc_functionalwithname_realsingle_3d
+  end interface
+
+  interface cg_iric_write_bc_indices
+    module procedure cg_iric_write_bc_indices_1d
+    module procedure cg_iric_write_bc_indices_2d
+    module procedure cg_iric_write_bc_indices_3d
+  end interface
+
+  interface cg_iric_write_bc_indices2
+    module procedure cg_iric_write_bc_indices2_1d
+    module procedure cg_iric_write_bc_indices2_2d
+    module procedure cg_iric_write_bc_indices2_3d
+  end interface
+
+  interface cg_iric_write_bc_functional
+    module procedure cg_iric_write_bc_functional_1d
+    module procedure cg_iric_write_bc_functional_2d
+    module procedure cg_iric_write_bc_functional_3d
+  end interface
+
+  interface cg_iric_write_bc_functionalwithname
+    module procedure cg_iric_write_bc_functionalwithname_1d
+    module procedure cg_iric_write_bc_functionalwithname_2d
+    module procedure cg_iric_write_bc_functionalwithname_3d
+  end interface
+
   interface cg_iric_read_grid_complex_node
     module procedure cg_iric_read_grid_complex_node_1d
     module procedure cg_iric_read_grid_complex_node_2d
@@ -146,6 +432,18 @@ module iric
     module procedure cg_iric_read_grid_complex_cell_3d
   end interface
 
+  interface cg_iric_read_grid_complex_iface
+    module procedure cg_iric_read_grid_complex_iface_1d
+    module procedure cg_iric_read_grid_complex_iface_2d
+    module procedure cg_iric_read_grid_complex_iface_3d
+  end interface
+
+  interface cg_iric_read_grid_complex_jface
+    module procedure cg_iric_read_grid_complex_jface_1d
+    module procedure cg_iric_read_grid_complex_jface_2d
+    module procedure cg_iric_read_grid_complex_jface_3d
+  end interface
+
   interface cg_iric_write_grid_complex_node
     module procedure cg_iric_write_grid_complex_node_1d
     module procedure cg_iric_write_grid_complex_node_2d
@@ -156,6 +454,18 @@ module iric
     module procedure cg_iric_write_grid_complex_cell_1d
     module procedure cg_iric_write_grid_complex_cell_2d
     module procedure cg_iric_write_grid_complex_cell_3d
+  end interface
+
+  interface cg_iric_write_grid_complex_iface
+    module procedure cg_iric_write_grid_complex_iface_1d
+    module procedure cg_iric_write_grid_complex_iface_2d
+    module procedure cg_iric_write_grid_complex_iface_3d
+  end interface
+
+  interface cg_iric_write_grid_complex_jface
+    module procedure cg_iric_write_grid_complex_jface_1d
+    module procedure cg_iric_write_grid_complex_jface_2d
+    module procedure cg_iric_write_grid_complex_jface_3d
   end interface
 
   interface cg_iric_read_grid2d_coords
@@ -192,6 +502,30 @@ module iric
     module procedure cg_iric_read_grid_integer_cell_3d
   end interface
 
+  interface cg_iric_read_grid_real_iface
+    module procedure cg_iric_read_grid_real_iface_1d
+    module procedure cg_iric_read_grid_real_iface_2d
+    module procedure cg_iric_read_grid_real_iface_3d
+  end interface
+
+  interface cg_iric_read_grid_integer_iface
+    module procedure cg_iric_read_grid_integer_iface_1d
+    module procedure cg_iric_read_grid_integer_iface_2d
+    module procedure cg_iric_read_grid_integer_iface_3d
+  end interface
+
+  interface cg_iric_read_grid_real_jface
+    module procedure cg_iric_read_grid_real_jface_1d
+    module procedure cg_iric_read_grid_real_jface_2d
+    module procedure cg_iric_read_grid_real_jface_3d
+  end interface
+
+  interface cg_iric_read_grid_integer_jface
+    module procedure cg_iric_read_grid_integer_jface_1d
+    module procedure cg_iric_read_grid_integer_jface_2d
+    module procedure cg_iric_read_grid_integer_jface_3d
+  end interface
+
   interface cg_iric_read_grid_functional_integer_node
     module procedure cg_iric_read_grid_functional_integer_node_1d
     module procedure cg_iric_read_grid_functional_integer_node_2d
@@ -216,6 +550,30 @@ module iric
     module procedure cg_iric_read_grid_functional_real_cell_3d
   end interface
 
+  interface cg_iric_read_grid_functional_integer_iface
+    module procedure cg_iric_read_grid_functional_integer_iface_1d
+    module procedure cg_iric_read_grid_functional_integer_iface_2d
+    module procedure cg_iric_read_grid_functional_integer_iface_3d
+  end interface
+
+  interface cg_iric_read_grid_functional_real_iface
+    module procedure cg_iric_read_grid_functional_real_iface_1d
+    module procedure cg_iric_read_grid_functional_real_iface_2d
+    module procedure cg_iric_read_grid_functional_real_iface_3d
+  end interface
+
+  interface cg_iric_read_grid_functional_integer_jface
+    module procedure cg_iric_read_grid_functional_integer_jface_1d
+    module procedure cg_iric_read_grid_functional_integer_jface_2d
+    module procedure cg_iric_read_grid_functional_integer_jface_3d
+  end interface
+
+  interface cg_iric_read_grid_functional_real_jface
+    module procedure cg_iric_read_grid_functional_real_jface_1d
+    module procedure cg_iric_read_grid_functional_real_jface_2d
+    module procedure cg_iric_read_grid_functional_real_jface_3d
+  end interface
+
   interface cg_iric_write_grid2d_coords
     module procedure cg_iric_write_grid2d_coords_1d
     module procedure cg_iric_write_grid2d_coords_2d
@@ -224,6 +582,16 @@ module iric
   interface cg_iric_write_grid3d_coords
     module procedure cg_iric_write_grid3d_coords_1d
     module procedure cg_iric_write_grid3d_coords_3d
+  end interface
+
+  interface cg_iric_write_namedgrid2d_coords
+    module procedure cg_iric_write_namedgrid2d_coords_1d
+    module procedure cg_iric_write_namedgrid2d_coords_2d
+  end interface
+
+  interface cg_iric_write_namedgrid3d_coords
+    module procedure cg_iric_write_namedgrid3d_coords_1d
+    module procedure cg_iric_write_namedgrid3d_coords_3d
   end interface
 
   interface cg_iric_write_grid_real_node
@@ -248,6 +616,30 @@ module iric
     module procedure cg_iric_write_grid_integer_cell_1d
     module procedure cg_iric_write_grid_integer_cell_2d
     module procedure cg_iric_write_grid_integer_cell_3d
+  end interface
+
+  interface cg_iric_write_grid_real_iface
+    module procedure cg_iric_write_grid_real_iface_1d
+    module procedure cg_iric_write_grid_real_iface_2d
+    module procedure cg_iric_write_grid_real_iface_3d
+  end interface
+
+  interface cg_iric_write_grid_integer_iface
+    module procedure cg_iric_write_grid_integer_iface_1d
+    module procedure cg_iric_write_grid_integer_iface_2d
+    module procedure cg_iric_write_grid_integer_iface_3d
+  end interface
+
+  interface cg_iric_write_grid_real_jface
+    module procedure cg_iric_write_grid_real_jface_1d
+    module procedure cg_iric_write_grid_real_jface_2d
+    module procedure cg_iric_write_grid_real_jface_3d
+  end interface
+
+  interface cg_iric_write_grid_integer_jface
+    module procedure cg_iric_write_grid_integer_jface_1d
+    module procedure cg_iric_write_grid_integer_jface_2d
+    module procedure cg_iric_write_grid_integer_jface_3d
   end interface
 
   interface cg_iric_read_sol_cell_integer
@@ -560,12 +952,38 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_read_bc_indices_withgridid(fid, gid, type, num, idx_arr, ier)
+  subroutine cg_iric_read_bc_indices_withgridid_1d(fid, gid, type, num, idx_arr, ier)
     integer, intent(in):: fid
     integer, intent(in):: gid
     character(*), intent(in):: type
     integer, intent(in):: num
     integer, dimension(:), intent(out):: idx_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_indices_withgridid_f2c &
+      (fid, gid, type, num, idx_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_indices_withgridid_2d(fid, gid, type, num, idx_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    integer, dimension(:,:), intent(out):: idx_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_indices_withgridid_f2c &
+      (fid, gid, type, num, idx_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_indices_withgridid_3d(fid, gid, type, num, idx_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    integer, dimension(:,:,:), intent(out):: idx_arr
     integer, intent(out):: ier
 
     call cg_iric_read_bc_indices_withgridid_f2c &
@@ -657,7 +1075,7 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_read_bc_functional_withgridid(fid, gid, type, num, name, x_arr, y_arr, ier)
+  subroutine cg_iric_read_bc_functional_withgridid_1d(fid, gid, type, num, name, x_arr, y_arr, ier)
     integer, intent(in):: fid
     integer, intent(in):: gid
     character(*), intent(in):: type
@@ -672,7 +1090,52 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_read_bc_functionalwithname_withgridid(fid, gid, type, num, name, paramname, v_arr, ier)
+  subroutine cg_iric_read_bc_functional_withgridid_2d(fid, gid, type, num, name, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    double precision, dimension(:,:), intent(out):: x_arr
+    double precision, dimension(:,:), intent(out):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_functional_withgridid_f2c &
+      (fid, gid, type, num, name, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_functional_withgridid_3d(fid, gid, type, num, name, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    double precision, dimension(:,:,:), intent(out):: x_arr
+    double precision, dimension(:,:,:), intent(out):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_functional_withgridid_f2c &
+      (fid, gid, type, num, name, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_functional_withgridid_4d(fid, gid, type, num, name, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    double precision, dimension(:,:,:,:), intent(out):: x_arr
+    double precision, dimension(:,:,:,:), intent(out):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_functional_withgridid_f2c &
+      (fid, gid, type, num, name, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_functionalwithname_withgridid_1d(fid, gid, type, num, name, paramname, v_arr, ier)
     integer, intent(in):: fid
     integer, intent(in):: gid
     character(*), intent(in):: type
@@ -687,7 +1150,52 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_read_bc_functional_realsingle_withgridid(fid, gid, type, num, name, x_arr, y_arr, ier)
+  subroutine cg_iric_read_bc_functionalwithname_withgridid_2d(fid, gid, type, num, name, paramname, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    double precision, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_functionalwithname_withgridid_f2c &
+      (fid, gid, type, num, name, paramname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_functionalwithname_withgridid_3d(fid, gid, type, num, name, paramname, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    double precision, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_functionalwithname_withgridid_f2c &
+      (fid, gid, type, num, name, paramname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_functionalwithname_withgridid_4d(fid, gid, type, num, name, paramname, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    double precision, dimension(:,:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_functionalwithname_withgridid_f2c &
+      (fid, gid, type, num, name, paramname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_functional_realsingle_withgridid_1d(fid, gid, type, num, name, x_arr, y_arr, ier)
     integer, intent(in):: fid
     integer, intent(in):: gid
     character(*), intent(in):: type
@@ -702,7 +1210,52 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_read_bc_functionalwithname_realsingle_withgridid(fid, gid, type, num, name, paramname, v_arr, ier)
+  subroutine cg_iric_read_bc_functional_realsingle_withgridid_2d(fid, gid, type, num, name, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    real, dimension(:,:), intent(out):: x_arr
+    real, dimension(:,:), intent(out):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_functional_realsingle_withgridid_f2c &
+      (fid, gid, type, num, name, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_functional_realsingle_withgridid_3d(fid, gid, type, num, name, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    real, dimension(:,:,:), intent(out):: x_arr
+    real, dimension(:,:,:), intent(out):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_functional_realsingle_withgridid_f2c &
+      (fid, gid, type, num, name, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_functional_realsingle_withgridid_4d(fid, gid, type, num, name, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    real, dimension(:,:,:,:), intent(out):: x_arr
+    real, dimension(:,:,:,:), intent(out):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_functional_realsingle_withgridid_f2c &
+      (fid, gid, type, num, name, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_functionalwithname_realsingle_withgridid_1d(fid, gid, type, num, name, paramname, v_arr, ier)
     integer, intent(in):: fid
     integer, intent(in):: gid
     character(*), intent(in):: type
@@ -710,6 +1263,51 @@ contains
     character(*), intent(in):: name
     character(*), intent(in):: paramname
     real, dimension(:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_functionalwithname_realsingle_withgridid_f2c &
+      (fid, gid, type, num, name, paramname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_functionalwithname_realsingle_withgridid_2d(fid, gid, type, num, name, paramname, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    real, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_functionalwithname_realsingle_withgridid_f2c &
+      (fid, gid, type, num, name, paramname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_functionalwithname_realsingle_withgridid_3d(fid, gid, type, num, name, paramname, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    real, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_functionalwithname_realsingle_withgridid_f2c &
+      (fid, gid, type, num, name, paramname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_functionalwithname_realsingle_withgridid_4d(fid, gid, type, num, name, paramname, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    real, dimension(:,:,:,:), intent(out):: v_arr
     integer, intent(out):: ier
 
     call cg_iric_read_bc_functionalwithname_realsingle_withgridid_f2c &
@@ -757,7 +1355,7 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_write_bc_indices_withgridid(fid, gid, type, num, length, idx_arr, ier)
+  subroutine cg_iric_write_bc_indices_withgridid_1d(fid, gid, type, num, length, idx_arr, ier)
     integer, intent(in):: fid
     integer, intent(in):: gid
     character(*), intent(in):: type
@@ -771,13 +1369,69 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_write_bc_indices2_withgridid(fid, gid, type, num, length, idx_arr, ier)
+  subroutine cg_iric_write_bc_indices_withgridid_2d(fid, gid, type, num, length, idx_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    integer, intent(in):: length
+    integer, dimension(:,:), intent(in):: idx_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_bc_indices_withgridid_f2c &
+      (fid, gid, type, num, length, idx_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_bc_indices_withgridid_3d(fid, gid, type, num, length, idx_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    integer, intent(in):: length
+    integer, dimension(:,:,:), intent(in):: idx_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_bc_indices_withgridid_f2c &
+      (fid, gid, type, num, length, idx_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_bc_indices2_withgridid_1d(fid, gid, type, num, length, idx_arr, ier)
     integer, intent(in):: fid
     integer, intent(in):: gid
     character(*), intent(in):: type
     integer, intent(in):: num
     integer, intent(in):: length
     integer, dimension(:), intent(in):: idx_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_bc_indices2_withgridid_f2c &
+      (fid, gid, type, num, length, idx_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_bc_indices2_withgridid_2d(fid, gid, type, num, length, idx_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    integer, intent(in):: length
+    integer, dimension(:,:), intent(in):: idx_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_bc_indices2_withgridid_f2c &
+      (fid, gid, type, num, length, idx_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_bc_indices2_withgridid_3d(fid, gid, type, num, length, idx_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    integer, intent(in):: length
+    integer, dimension(:,:,:), intent(in):: idx_arr
     integer, intent(out):: ier
 
     call cg_iric_write_bc_indices2_withgridid_f2c &
@@ -827,7 +1481,7 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_write_bc_functional_withgridid(fid, gid, type, num, name, length, x_arr, y_arr, ier)
+  subroutine cg_iric_write_bc_functional_withgridid_1d(fid, gid, type, num, name, length, x_arr, y_arr, ier)
     integer, intent(in):: fid
     integer, intent(in):: gid
     character(*), intent(in):: type
@@ -843,7 +1497,55 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_write_bc_functionalwithname_withgridid(fid, gid, type, num, name, paramname, length, v_arr, ier)
+  subroutine cg_iric_write_bc_functional_withgridid_2d(fid, gid, type, num, name, length, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    integer, intent(in):: length
+    double precision, dimension(:,:), intent(in):: x_arr
+    double precision, dimension(:,:), intent(in):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_bc_functional_withgridid_f2c &
+      (fid, gid, type, num, name, length, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_bc_functional_withgridid_3d(fid, gid, type, num, name, length, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    integer, intent(in):: length
+    double precision, dimension(:,:,:), intent(in):: x_arr
+    double precision, dimension(:,:,:), intent(in):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_bc_functional_withgridid_f2c &
+      (fid, gid, type, num, name, length, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_bc_functional_withgridid_4d(fid, gid, type, num, name, length, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    integer, intent(in):: length
+    double precision, dimension(:,:,:,:), intent(in):: x_arr
+    double precision, dimension(:,:,:,:), intent(in):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_bc_functional_withgridid_f2c &
+      (fid, gid, type, num, name, length, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_bc_functionalwithname_withgridid_1d(fid, gid, type, num, name, paramname, length, v_arr, ier)
     integer, intent(in):: fid
     integer, intent(in):: gid
     character(*), intent(in):: type
@@ -852,6 +1554,54 @@ contains
     character(*), intent(in):: paramname
     integer, intent(in):: length
     double precision, dimension(:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_bc_functionalwithname_withgridid_f2c &
+      (fid, gid, type, num, name, paramname, length, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_bc_functionalwithname_withgridid_2d(fid, gid, type, num, name, paramname, length, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    integer, intent(in):: length
+    double precision, dimension(:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_bc_functionalwithname_withgridid_f2c &
+      (fid, gid, type, num, name, paramname, length, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_bc_functionalwithname_withgridid_3d(fid, gid, type, num, name, paramname, length, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    integer, intent(in):: length
+    double precision, dimension(:,:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_bc_functionalwithname_withgridid_f2c &
+      (fid, gid, type, num, name, paramname, length, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_bc_functionalwithname_withgridid_4d(fid, gid, type, num, name, paramname, length, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    integer, intent(in):: length
+    double precision, dimension(:,:,:,:), intent(in):: v_arr
     integer, intent(out):: ier
 
     call cg_iric_write_bc_functionalwithname_withgridid_f2c &
@@ -944,7 +1694,7 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_read_functional(fid, name, x_arr, y_arr, ier)
+  subroutine cg_iric_read_functional_1d(fid, name, x_arr, y_arr, ier)
     integer, intent(in):: fid
     character(*), intent(in):: name
     double precision, dimension(:), intent(out):: x_arr
@@ -956,7 +1706,43 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_read_functionalwithname(fid, name, paramname, v_arr, ier)
+  subroutine cg_iric_read_functional_2d(fid, name, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    double precision, dimension(:,:), intent(out):: x_arr
+    double precision, dimension(:,:), intent(out):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_functional_f2c &
+      (fid, name, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_functional_3d(fid, name, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    double precision, dimension(:,:,:), intent(out):: x_arr
+    double precision, dimension(:,:,:), intent(out):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_functional_f2c &
+      (fid, name, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_functional_4d(fid, name, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    double precision, dimension(:,:,:,:), intent(out):: x_arr
+    double precision, dimension(:,:,:,:), intent(out):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_functional_f2c &
+      (fid, name, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_functionalwithname_1d(fid, name, paramname, v_arr, ier)
     integer, intent(in):: fid
     character(*), intent(in):: name
     character(*), intent(in):: paramname
@@ -968,7 +1754,43 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_read_functional_realsingle(fid, name, x_arr, y_arr, ier)
+  subroutine cg_iric_read_functionalwithname_2d(fid, name, paramname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    double precision, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_functionalwithname_f2c &
+      (fid, name, paramname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_functionalwithname_3d(fid, name, paramname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    double precision, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_functionalwithname_f2c &
+      (fid, name, paramname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_functionalwithname_4d(fid, name, paramname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    double precision, dimension(:,:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_functionalwithname_f2c &
+      (fid, name, paramname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_functional_realsingle_1d(fid, name, x_arr, y_arr, ier)
     integer, intent(in):: fid
     character(*), intent(in):: name
     real, dimension(:), intent(out):: x_arr
@@ -980,11 +1802,83 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_read_functionalwithname_realsingle(fid, name, paramname, v_arr, ier)
+  subroutine cg_iric_read_functional_realsingle_2d(fid, name, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    real, dimension(:,:), intent(out):: x_arr
+    real, dimension(:,:), intent(out):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_functional_realsingle_f2c &
+      (fid, name, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_functional_realsingle_3d(fid, name, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    real, dimension(:,:,:), intent(out):: x_arr
+    real, dimension(:,:,:), intent(out):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_functional_realsingle_f2c &
+      (fid, name, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_functional_realsingle_4d(fid, name, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    real, dimension(:,:,:,:), intent(out):: x_arr
+    real, dimension(:,:,:,:), intent(out):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_functional_realsingle_f2c &
+      (fid, name, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_functionalwithname_realsingle_1d(fid, name, paramname, v_arr, ier)
     integer, intent(in):: fid
     character(*), intent(in):: name
     character(*), intent(in):: paramname
     real, dimension(:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_functionalwithname_realsingle_f2c &
+      (fid, name, paramname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_functionalwithname_realsingle_2d(fid, name, paramname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    real, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_functionalwithname_realsingle_f2c &
+      (fid, name, paramname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_functionalwithname_realsingle_3d(fid, name, paramname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    real, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_functionalwithname_realsingle_f2c &
+      (fid, name, paramname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_functionalwithname_realsingle_4d(fid, name, paramname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    real, dimension(:,:,:,:), intent(out):: v_arr
     integer, intent(out):: ier
 
     call cg_iric_read_functionalwithname_realsingle_f2c &
@@ -1049,7 +1943,7 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_write_functional(fid, name, length, x_arr, y_arr, ier)
+  subroutine cg_iric_write_functional_1d(fid, name, length, x_arr, y_arr, ier)
     integer, intent(in):: fid
     character(*), intent(in):: name
     integer, intent(in):: length
@@ -1062,12 +1956,90 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_write_functionalwithname(fid, name, paramname, length, v_arr, ier)
+  subroutine cg_iric_write_functional_2d(fid, name, length, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: length
+    double precision, dimension(:,:), intent(in):: x_arr
+    double precision, dimension(:,:), intent(in):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_functional_f2c &
+      (fid, name, length, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_functional_3d(fid, name, length, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: length
+    double precision, dimension(:,:,:), intent(in):: x_arr
+    double precision, dimension(:,:,:), intent(in):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_functional_f2c &
+      (fid, name, length, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_functional_4d(fid, name, length, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: length
+    double precision, dimension(:,:,:,:), intent(in):: x_arr
+    double precision, dimension(:,:,:,:), intent(in):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_functional_f2c &
+      (fid, name, length, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_functionalwithname_1d(fid, name, paramname, length, v_arr, ier)
     integer, intent(in):: fid
     character(*), intent(in):: name
     character(*), intent(in):: paramname
     integer, intent(in):: length
     double precision, dimension(:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_functionalwithname_f2c &
+      (fid, name, paramname, length, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_functionalwithname_2d(fid, name, paramname, length, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    integer, intent(in):: length
+    double precision, dimension(:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_functionalwithname_f2c &
+      (fid, name, paramname, length, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_functionalwithname_3d(fid, name, paramname, length, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    integer, intent(in):: length
+    double precision, dimension(:,:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_functionalwithname_f2c &
+      (fid, name, paramname, length, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_functionalwithname_4d(fid, name, paramname, length, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    integer, intent(in):: length
+    double precision, dimension(:,:,:,:), intent(in):: v_arr
     integer, intent(out):: ier
 
     call cg_iric_write_functionalwithname_f2c &
@@ -1163,6 +2135,78 @@ contains
 
   end subroutine
 
+  subroutine cg_iric_read_grid_complex_iface_withgridid_1d(fid, gid, groupname, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: groupname
+    integer, dimension(:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_complex_iface_withgridid_f2c &
+      (fid, gid, groupname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_complex_iface_withgridid_2d(fid, gid, groupname, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: groupname
+    integer, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_complex_iface_withgridid_f2c &
+      (fid, gid, groupname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_complex_iface_withgridid_3d(fid, gid, groupname, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: groupname
+    integer, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_complex_iface_withgridid_f2c &
+      (fid, gid, groupname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_complex_jface_withgridid_1d(fid, gid, groupname, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: groupname
+    integer, dimension(:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_complex_jface_withgridid_f2c &
+      (fid, gid, groupname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_complex_jface_withgridid_2d(fid, gid, groupname, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: groupname
+    integer, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_complex_jface_withgridid_f2c &
+      (fid, gid, groupname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_complex_jface_withgridid_3d(fid, gid, groupname, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: groupname
+    integer, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_complex_jface_withgridid_f2c &
+      (fid, gid, groupname, v_arr, ier)
+
+  end subroutine
+
   subroutine cg_iric_write_grid_complex_node_withgridid_1d(fid, gid, groupname, v_arr, ier)
     integer, intent(in):: fid
     integer, intent(in):: gid
@@ -1235,250 +2279,322 @@ contains
 
   end subroutine
 
+  subroutine cg_iric_write_grid_complex_iface_withgridid_1d(fid, gid, groupname, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: groupname
+    integer, dimension(:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_complex_iface_withgridid_f2c &
+      (fid, gid, groupname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_complex_iface_withgridid_2d(fid, gid, groupname, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: groupname
+    integer, dimension(:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_complex_iface_withgridid_f2c &
+      (fid, gid, groupname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_complex_iface_withgridid_3d(fid, gid, groupname, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: groupname
+    integer, dimension(:,:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_complex_iface_withgridid_f2c &
+      (fid, gid, groupname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_complex_jface_withgridid_1d(fid, gid, groupname, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: groupname
+    integer, dimension(:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_complex_jface_withgridid_f2c &
+      (fid, gid, groupname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_complex_jface_withgridid_2d(fid, gid, groupname, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: groupname
+    integer, dimension(:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_complex_jface_withgridid_f2c &
+      (fid, gid, groupname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_complex_jface_withgridid_3d(fid, gid, groupname, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: groupname
+    integer, dimension(:,:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_complex_jface_withgridid_f2c &
+      (fid, gid, groupname, v_arr, ier)
+
+  end subroutine
+
 
 
   ! from iriclib_geo.h
 
-  subroutine iric_geo_polygon_open(filename, id, ier)
+  subroutine iric_geo_polygon_open(filename, geo_handle, ier)
     character(*), intent(in):: filename
-    integer, intent(out):: id
+    integer, intent(out):: geo_handle
     integer, intent(out):: ier
 
     call iric_geo_polygon_open_f2c &
-      (filename, id, ier)
+      (filename, geo_handle, ier)
 
   end subroutine
 
-  subroutine iric_geo_polygon_read_integervalue(id, value, ier)
-    integer, intent(in):: id
+  subroutine iric_geo_polygon_read_integervalue(geo_handle, value, ier)
+    integer, intent(in):: geo_handle
     integer, intent(out):: value
     integer, intent(out):: ier
 
     call iric_geo_polygon_read_integervalue_f2c &
-      (id, value, ier)
+      (geo_handle, value, ier)
 
   end subroutine
 
-  subroutine iric_geo_polygon_read_realvalue(id, value, ier)
-    integer, intent(in):: id
+  subroutine iric_geo_polygon_read_realvalue(geo_handle, value, ier)
+    integer, intent(in):: geo_handle
     double precision, intent(out):: value
     integer, intent(out):: ier
 
     call iric_geo_polygon_read_realvalue_f2c &
-      (id, value, ier)
+      (geo_handle, value, ier)
 
   end subroutine
 
-  subroutine iric_geo_polygon_read_pointcount(id, size, ier)
-    integer, intent(in):: id
-    integer, intent(out):: size
+  subroutine iric_geo_polygon_read_pointcount(geo_handle, count, ier)
+    integer, intent(in):: geo_handle
+    integer, intent(out):: count
     integer, intent(out):: ier
 
     call iric_geo_polygon_read_pointcount_f2c &
-      (id, size, ier)
+      (geo_handle, count, ier)
 
   end subroutine
 
-  subroutine iric_geo_polygon_read_points(id, x_arr, y_arr, ier)
-    integer, intent(in):: id
+  subroutine iric_geo_polygon_read_points(geo_handle, x_arr, y_arr, ier)
+    integer, intent(in):: geo_handle
     double precision, dimension(:), intent(out):: x_arr
     double precision, dimension(:), intent(out):: y_arr
     integer, intent(out):: ier
 
     call iric_geo_polygon_read_points_f2c &
-      (id, x_arr, y_arr, ier)
+      (geo_handle, x_arr, y_arr, ier)
 
   end subroutine
 
-  subroutine iric_geo_polygon_read_holecount(id, count, ier)
-    integer, intent(in):: id
+  subroutine iric_geo_polygon_read_holecount(geo_handle, count, ier)
+    integer, intent(in):: geo_handle
     integer, intent(out):: count
     integer, intent(out):: ier
 
     call iric_geo_polygon_read_holecount_f2c &
-      (id, count, ier)
+      (geo_handle, count, ier)
 
   end subroutine
 
-  subroutine iric_geo_polygon_read_holepointcount(id, holeid, count, ier)
-    integer, intent(in):: id
+  subroutine iric_geo_polygon_read_holepointcount(geo_handle, holeid, count, ier)
+    integer, intent(in):: geo_handle
     integer, intent(in):: holeid
     integer, intent(out):: count
     integer, intent(out):: ier
 
     call iric_geo_polygon_read_holepointcount_f2c &
-      (id, holeid, count, ier)
+      (geo_handle, holeid, count, ier)
 
   end subroutine
 
-  subroutine iric_geo_polygon_read_holepoints(id, holeid, x_arr, y_arr, ier)
-    integer, intent(in):: id
+  subroutine iric_geo_polygon_read_holepoints(geo_handle, holeid, x_arr, y_arr, ier)
+    integer, intent(in):: geo_handle
     integer, intent(in):: holeid
     double precision, dimension(:), intent(out):: x_arr
     double precision, dimension(:), intent(out):: y_arr
     integer, intent(out):: ier
 
     call iric_geo_polygon_read_holepoints_f2c &
-      (id, holeid, x_arr, y_arr, ier)
+      (geo_handle, holeid, x_arr, y_arr, ier)
 
   end subroutine
 
-  subroutine iric_geo_polygon_close(id, ier)
-    integer, intent(in):: id
+  subroutine iric_geo_polygon_close(geo_handle, ier)
+    integer, intent(in):: geo_handle
     integer, intent(out):: ier
 
     call iric_geo_polygon_close_f2c &
-      (id, ier)
+      (geo_handle, ier)
 
   end subroutine
 
-  subroutine iric_geo_riversurvey_open(filename, id, ier)
+  subroutine iric_geo_riversurvey_open(filename, geo_handle, ier)
     character(*), intent(in):: filename
-    integer, intent(out):: id
+    integer, intent(out):: geo_handle
     integer, intent(out):: ier
 
     call iric_geo_riversurvey_open_f2c &
-      (filename, id, ier)
+      (filename, geo_handle, ier)
 
   end subroutine
 
-  subroutine iric_geo_riversurvey_read_count(id, count, ier)
-    integer, intent(in):: id
+  subroutine iric_geo_riversurvey_read_count(geo_handle, count, ier)
+    integer, intent(in):: geo_handle
     integer, intent(out):: count
     integer, intent(out):: ier
 
     call iric_geo_riversurvey_read_count_f2c &
-      (id, count, ier)
+      (geo_handle, count, ier)
 
   end subroutine
 
-  subroutine iric_geo_riversurvey_read_position(id, pointid, x, y, ier)
-    integer, intent(in):: id
-    integer, intent(in):: pointid
+  subroutine iric_geo_riversurvey_read_position(geo_handle, csid, x, y, ier)
+    integer, intent(in):: geo_handle
+    integer, intent(in):: csid
     double precision, intent(out):: x
     double precision, intent(out):: y
     integer, intent(out):: ier
 
     call iric_geo_riversurvey_read_position_f2c &
-      (id, pointid, x, y, ier)
+      (geo_handle, csid, x, y, ier)
 
   end subroutine
 
-  subroutine iric_geo_riversurvey_read_direction(id, pointid, vx, vy, ier)
-    integer, intent(in):: id
-    integer, intent(in):: pointid
-    double precision, intent(out):: vx
-    double precision, intent(out):: vy
+  subroutine iric_geo_riversurvey_read_direction(geo_handle, csid, dirx, diry, ier)
+    integer, intent(in):: geo_handle
+    integer, intent(in):: csid
+    double precision, intent(out):: dirx
+    double precision, intent(out):: diry
     integer, intent(out):: ier
 
     call iric_geo_riversurvey_read_direction_f2c &
-      (id, pointid, vx, vy, ier)
+      (geo_handle, csid, dirx, diry, ier)
 
   end subroutine
 
-  subroutine iric_geo_riversurvey_read_name(id, pointid, strvalue, ier)
-    integer, intent(in):: id
-    integer, intent(in):: pointid
+  subroutine iric_geo_riversurvey_read_name(geo_handle, csid, strvalue, ier)
+    integer, intent(in):: geo_handle
+    integer, intent(in):: csid
     character(*), intent(out):: strvalue
     integer, intent(out):: ier
 
     call iric_geo_riversurvey_read_name_f2c &
-      (id, pointid, strvalue, ier)
+      (geo_handle, csid, strvalue, ier)
 
   end subroutine
 
-  subroutine iric_geo_riversurvey_read_realname(id, pointid, name, ier)
-    integer, intent(in):: id
-    integer, intent(in):: pointid
+  subroutine iric_geo_riversurvey_read_realname(geo_handle, csid, name, ier)
+    integer, intent(in):: geo_handle
+    integer, intent(in):: csid
     double precision, intent(out):: name
     integer, intent(out):: ier
 
     call iric_geo_riversurvey_read_realname_f2c &
-      (id, pointid, name, ier)
+      (geo_handle, csid, name, ier)
 
   end subroutine
 
-  subroutine iric_geo_riversurvey_read_leftshift(id, pointid, shift, ier)
-    integer, intent(in):: id
-    integer, intent(in):: pointid
+  subroutine iric_geo_riversurvey_read_leftshift(geo_handle, csid, shift, ier)
+    integer, intent(in):: geo_handle
+    integer, intent(in):: csid
     double precision, intent(out):: shift
     integer, intent(out):: ier
 
     call iric_geo_riversurvey_read_leftshift_f2c &
-      (id, pointid, shift, ier)
+      (geo_handle, csid, shift, ier)
 
   end subroutine
 
-  subroutine iric_geo_riversurvey_read_altitudecount(id, pointid, count, ier)
-    integer, intent(in):: id
-    integer, intent(in):: pointid
+  subroutine iric_geo_riversurvey_read_altitudecount(geo_handle, csid, count, ier)
+    integer, intent(in):: geo_handle
+    integer, intent(in):: csid
     integer, intent(out):: count
     integer, intent(out):: ier
 
     call iric_geo_riversurvey_read_altitudecount_f2c &
-      (id, pointid, count, ier)
+      (geo_handle, csid, count, ier)
 
   end subroutine
 
-  subroutine iric_geo_riversurvey_read_altitudes(id, pointid, position_arr, height_arr, active_arr, ier)
-    integer, intent(in):: id
-    integer, intent(in):: pointid
+  subroutine iric_geo_riversurvey_read_altitudes(geo_handle, csid, position_arr, height_arr, active_arr, ier)
+    integer, intent(in):: geo_handle
+    integer, intent(in):: csid
     double precision, dimension(:), intent(out):: position_arr
     double precision, dimension(:), intent(out):: height_arr
     integer, dimension(:), intent(out):: active_arr
     integer, intent(out):: ier
 
     call iric_geo_riversurvey_read_altitudes_f2c &
-      (id, pointid, position_arr, height_arr, active_arr, ier)
+      (geo_handle, csid, position_arr, height_arr, active_arr, ier)
 
   end subroutine
 
-  subroutine iric_geo_riversurvey_read_fixedpointl(id, pointid, set, directionX, directionY, index, ier)
-    integer, intent(in):: id
-    integer, intent(in):: pointid
+  subroutine iric_geo_riversurvey_read_fixedpointl(geo_handle, csid, set, dirx, diry, index, ier)
+    integer, intent(in):: geo_handle
+    integer, intent(in):: csid
     integer, intent(out):: set
-    double precision, intent(out):: directionX
-    double precision, intent(out):: directionY
+    double precision, intent(out):: dirx
+    double precision, intent(out):: diry
     integer, intent(out):: index
     integer, intent(out):: ier
 
     call iric_geo_riversurvey_read_fixedpointl_f2c &
-      (id, pointid, set, directionX, directionY, index, ier)
+      (geo_handle, csid, set, dirx, diry, index, ier)
 
   end subroutine
 
-  subroutine iric_geo_riversurvey_read_fixedpointr(id, pointid, set, directionX, directionY, index, ier)
-    integer, intent(in):: id
-    integer, intent(in):: pointid
+  subroutine iric_geo_riversurvey_read_fixedpointr(geo_handle, csid, set, dirx, diry, index, ier)
+    integer, intent(in):: geo_handle
+    integer, intent(in):: csid
     integer, intent(out):: set
-    double precision, intent(out):: directionX
-    double precision, intent(out):: directionY
+    double precision, intent(out):: dirx
+    double precision, intent(out):: diry
     integer, intent(out):: index
     integer, intent(out):: ier
 
     call iric_geo_riversurvey_read_fixedpointr_f2c &
-      (id, pointid, set, directionX, directionY, index, ier)
+      (geo_handle, csid, set, dirx, diry, index, ier)
 
   end subroutine
 
-  subroutine iric_geo_riversurvey_read_watersurfaceelevation(id, pointid, set, value, ier)
-    integer, intent(in):: id
-    integer, intent(in):: pointid
+  subroutine iric_geo_riversurvey_read_watersurfaceelevation(geo_handle, csid, set, value, ier)
+    integer, intent(in):: geo_handle
+    integer, intent(in):: csid
     integer, intent(out):: set
     double precision, intent(out):: value
     integer, intent(out):: ier
 
     call iric_geo_riversurvey_read_watersurfaceelevation_f2c &
-      (id, pointid, set, value, ier)
+      (geo_handle, csid, set, value, ier)
 
   end subroutine
 
-  subroutine iric_geo_riversurvey_close(id, ier)
-    integer, intent(in):: id
+  subroutine iric_geo_riversurvey_close(geo_handle, ier)
+    integer, intent(in):: geo_handle
     integer, intent(out):: ier
 
     call iric_geo_riversurvey_close_f2c &
-      (id, ier)
+      (geo_handle, ier)
 
   end subroutine
 
@@ -1589,14 +2705,25 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_read_grid_triangleelementssize_withgridid(fid, gid, size, ier)
+  subroutine cg_iric_read_grid_celltype_withgridid(fid, gid, type, ier)
     integer, intent(in):: fid
     integer, intent(in):: gid
-    integer, intent(out):: size
+    integer, intent(out):: type
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_celltype_withgridid_f2c &
+      (fid, gid, type, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_triangleelementssize_withgridid(fid, gid, tsize, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    integer, intent(out):: tsize
     integer, intent(out):: ier
 
     call cg_iric_read_grid_triangleelementssize_withgridid_f2c &
-      (fid, gid, size, ier)
+      (fid, gid, tsize, ier)
 
   end subroutine
 
@@ -1607,6 +2734,28 @@ contains
     integer, intent(out):: ier
 
     call cg_iric_read_grid_triangleelements_withgridid_f2c &
+      (fid, gid, id_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_lineelementssize_withgridid(fid, gid, tsize, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    integer, intent(out):: tsize
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_lineelementssize_withgridid_f2c &
+      (fid, gid, tsize, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_lineelements_withgridid(fid, gid, id_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    integer, dimension(:), intent(out):: id_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_lineelements_withgridid_f2c &
       (fid, gid, id_arr, ier)
 
   end subroutine
@@ -1806,6 +2955,150 @@ contains
     integer, intent(out):: ier
 
     call cg_iric_read_grid_integer_cell_withgridid_f2c &
+      (fid, gid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_real_iface_withgridid_1d(fid, gid, name, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    double precision, dimension(:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_real_iface_withgridid_f2c &
+      (fid, gid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_real_iface_withgridid_2d(fid, gid, name, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    double precision, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_real_iface_withgridid_f2c &
+      (fid, gid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_real_iface_withgridid_3d(fid, gid, name, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    double precision, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_real_iface_withgridid_f2c &
+      (fid, gid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_integer_iface_withgridid_1d(fid, gid, name, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    integer, dimension(:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_integer_iface_withgridid_f2c &
+      (fid, gid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_integer_iface_withgridid_2d(fid, gid, name, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    integer, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_integer_iface_withgridid_f2c &
+      (fid, gid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_integer_iface_withgridid_3d(fid, gid, name, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    integer, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_integer_iface_withgridid_f2c &
+      (fid, gid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_real_jface_withgridid_1d(fid, gid, name, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    double precision, dimension(:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_real_jface_withgridid_f2c &
+      (fid, gid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_real_jface_withgridid_2d(fid, gid, name, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    double precision, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_real_jface_withgridid_f2c &
+      (fid, gid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_real_jface_withgridid_3d(fid, gid, name, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    double precision, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_real_jface_withgridid_f2c &
+      (fid, gid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_integer_jface_withgridid_1d(fid, gid, name, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    integer, dimension(:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_integer_jface_withgridid_f2c &
+      (fid, gid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_integer_jface_withgridid_2d(fid, gid, name, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    integer, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_integer_jface_withgridid_f2c &
+      (fid, gid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_integer_jface_withgridid_3d(fid, gid, name, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    integer, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_integer_jface_withgridid_f2c &
       (fid, gid, name, v_arr, ier)
 
   end subroutine
@@ -2029,6 +3322,162 @@ contains
 
   end subroutine
 
+  subroutine cg_iric_read_grid_functional_integer_iface_withgridid_1d(fid, gid, name, dimid, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    integer, intent(in):: dimid
+    integer, dimension(:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_functional_integer_iface_withgridid_f2c &
+      (fid, gid, name, dimid, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_functional_integer_iface_withgridid_2d(fid, gid, name, dimid, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    integer, intent(in):: dimid
+    integer, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_functional_integer_iface_withgridid_f2c &
+      (fid, gid, name, dimid, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_functional_integer_iface_withgridid_3d(fid, gid, name, dimid, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    integer, intent(in):: dimid
+    integer, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_functional_integer_iface_withgridid_f2c &
+      (fid, gid, name, dimid, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_functional_real_iface_withgridid_1d(fid, gid, name, dimid, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    integer, intent(in):: dimid
+    double precision, dimension(:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_functional_real_iface_withgridid_f2c &
+      (fid, gid, name, dimid, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_functional_real_iface_withgridid_2d(fid, gid, name, dimid, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    integer, intent(in):: dimid
+    double precision, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_functional_real_iface_withgridid_f2c &
+      (fid, gid, name, dimid, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_functional_real_iface_withgridid_3d(fid, gid, name, dimid, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    integer, intent(in):: dimid
+    double precision, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_functional_real_iface_withgridid_f2c &
+      (fid, gid, name, dimid, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_functional_integer_jface_withgridid_1d(fid, gid, name, dimid, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    integer, intent(in):: dimid
+    integer, dimension(:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_functional_integer_jface_withgridid_f2c &
+      (fid, gid, name, dimid, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_functional_integer_jface_withgridid_2d(fid, gid, name, dimid, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    integer, intent(in):: dimid
+    integer, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_functional_integer_jface_withgridid_f2c &
+      (fid, gid, name, dimid, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_functional_integer_jface_withgridid_3d(fid, gid, name, dimid, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    integer, intent(in):: dimid
+    integer, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_functional_integer_jface_withgridid_f2c &
+      (fid, gid, name, dimid, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_functional_real_jface_withgridid_1d(fid, gid, name, dimid, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    integer, intent(in):: dimid
+    double precision, dimension(:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_functional_real_jface_withgridid_f2c &
+      (fid, gid, name, dimid, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_functional_real_jface_withgridid_2d(fid, gid, name, dimid, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    integer, intent(in):: dimid
+    double precision, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_functional_real_jface_withgridid_f2c &
+      (fid, gid, name, dimid, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_functional_real_jface_withgridid_3d(fid, gid, name, dimid, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    integer, intent(in):: dimid
+    double precision, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_functional_real_jface_withgridid_f2c &
+      (fid, gid, name, dimid, v_arr, ier)
+
+  end subroutine
+
   subroutine cg_iric_write_grid1d_coords_withgridid(fid, isize, x_arr, gid, ier)
     integer, intent(in):: fid
     integer, intent(in):: isize
@@ -2098,6 +3547,178 @@ contains
 
     call cg_iric_write_grid3d_coords_withgridid_f2c &
       (fid, isize, jsize, ksize, x_arr, y_arr, z_arr, gid, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_namedgrid1d_coords_withgridid(fid, name, isize, x_arr, gid, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: isize
+    double precision, dimension(:), intent(in):: x_arr
+    integer, intent(out):: gid
+    integer, intent(out):: ier
+
+    call cg_iric_write_namedgrid1d_coords_withgridid_f2c &
+      (fid, name, isize, x_arr, gid, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_namedgrid2d_coords_withgridid_1d(fid, name, isize, jsize, x_arr, y_arr, gid, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: isize
+    integer, intent(in):: jsize
+    double precision, dimension(:), intent(in):: x_arr
+    double precision, dimension(:), intent(in):: y_arr
+    integer, intent(out):: gid
+    integer, intent(out):: ier
+
+    call cg_iric_write_namedgrid2d_coords_withgridid_f2c &
+      (fid, name, isize, jsize, x_arr, y_arr, gid, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_namedgrid2d_coords_withgridid_2d(fid, name, isize, jsize, x_arr, y_arr, gid, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: isize
+    integer, intent(in):: jsize
+    double precision, dimension(:,:), intent(in):: x_arr
+    double precision, dimension(:,:), intent(in):: y_arr
+    integer, intent(out):: gid
+    integer, intent(out):: ier
+
+    call cg_iric_write_namedgrid2d_coords_withgridid_f2c &
+      (fid, name, isize, jsize, x_arr, y_arr, gid, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_namedgrid3d_coords_withgridid_1d(fid, name, isize, jsize, ksize, x_arr, y_arr, z_arr, gid, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: isize
+    integer, intent(in):: jsize
+    integer, intent(in):: ksize
+    double precision, dimension(:), intent(in):: x_arr
+    double precision, dimension(:), intent(in):: y_arr
+    double precision, dimension(:), intent(in):: z_arr
+    integer, intent(out):: gid
+    integer, intent(out):: ier
+
+    call cg_iric_write_namedgrid3d_coords_withgridid_f2c &
+      (fid, name, isize, jsize, ksize, x_arr, y_arr, z_arr, gid, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_namedgrid3d_coords_withgridid_3d(fid, name, isize, jsize, ksize, x_arr, y_arr, z_arr, gid, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: isize
+    integer, intent(in):: jsize
+    integer, intent(in):: ksize
+    double precision, dimension(:,:,:), intent(in):: x_arr
+    double precision, dimension(:,:,:), intent(in):: y_arr
+    double precision, dimension(:,:,:), intent(in):: z_arr
+    integer, intent(out):: gid
+    integer, intent(out):: ier
+
+    call cg_iric_write_namedgrid3d_coords_withgridid_f2c &
+      (fid, name, isize, jsize, ksize, x_arr, y_arr, z_arr, gid, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid2d_unst_triangles_withgridid(fid, psize, x_arr, y_arr, csize, idx_arr, gid, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: psize
+    double precision, dimension(:), intent(in):: x_arr
+    double precision, dimension(:), intent(in):: y_arr
+    integer, intent(in):: csize
+    integer, dimension(:), intent(in):: idx_arr
+    integer, intent(out):: gid
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid2d_unst_triangles_withgridid_f2c &
+      (fid, psize, x_arr, y_arr, csize, idx_arr, gid, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid2d_unst_lines_withgridid(fid, psize, x_arr, y_arr, csize, idx_arr, gid, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: psize
+    double precision, dimension(:), intent(in):: x_arr
+    double precision, dimension(:), intent(in):: y_arr
+    integer, intent(in):: csize
+    integer, dimension(:), intent(in):: idx_arr
+    integer, intent(out):: gid
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid2d_unst_lines_withgridid_f2c &
+      (fid, psize, x_arr, y_arr, csize, idx_arr, gid, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid3d_unst_lines_withgridid(fid, psize, x_arr, y_arr, z_arr, csize, idx_arr, gid, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: psize
+    double precision, dimension(:), intent(in):: x_arr
+    double precision, dimension(:), intent(in):: y_arr
+    double precision, dimension(:), intent(in):: z_arr
+    integer, intent(in):: csize
+    integer, dimension(:), intent(in):: idx_arr
+    integer, intent(out):: gid
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid3d_unst_lines_withgridid_f2c &
+      (fid, psize, x_arr, y_arr, z_arr, csize, idx_arr, gid, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_namedgrid2d_unst_triangles_withgridid(fid, name, psize, x_arr, y_arr, csize, idx_arr, gid, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: psize
+    double precision, dimension(:), intent(in):: x_arr
+    double precision, dimension(:), intent(in):: y_arr
+    integer, intent(in):: csize
+    integer, dimension(:), intent(in):: idx_arr
+    integer, intent(out):: gid
+    integer, intent(out):: ier
+
+    call cg_iric_write_namedgrid2d_unst_triangles_withgridid_f2c &
+      (fid, name, psize, x_arr, y_arr, csize, idx_arr, gid, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_namedgrid2d_unst_lines_withgridid(fid, name, psize, x_arr, y_arr, csize, idx_arr, gid, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: psize
+    double precision, dimension(:), intent(in):: x_arr
+    double precision, dimension(:), intent(in):: y_arr
+    integer, intent(in):: csize
+    integer, dimension(:), intent(in):: idx_arr
+    integer, intent(out):: gid
+    integer, intent(out):: ier
+
+    call cg_iric_write_namedgrid2d_unst_lines_withgridid_f2c &
+      (fid, name, psize, x_arr, y_arr, csize, idx_arr, gid, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_namedgrid3d_unst_lines_withgridid(fid, name, psize, x_arr, y_arr, z_arr, csize, idx_arr, gid, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: psize
+    double precision, dimension(:), intent(in):: x_arr
+    double precision, dimension(:), intent(in):: y_arr
+    double precision, dimension(:), intent(in):: z_arr
+    integer, intent(in):: csize
+    integer, dimension(:), intent(in):: idx_arr
+    integer, intent(out):: gid
+    integer, intent(out):: ier
+
+    call cg_iric_write_namedgrid3d_unst_lines_withgridid_f2c &
+      (fid, name, psize, x_arr, y_arr, z_arr, csize, idx_arr, gid, ier)
 
   end subroutine
 
@@ -2245,6 +3866,161 @@ contains
 
   end subroutine
 
+  subroutine cg_iric_write_grid_real_iface_withgridid_1d(fid, gid, name, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    double precision, dimension(:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_real_iface_withgridid_f2c &
+      (fid, gid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_real_iface_withgridid_2d(fid, gid, name, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    double precision, dimension(:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_real_iface_withgridid_f2c &
+      (fid, gid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_real_iface_withgridid_3d(fid, gid, name, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    double precision, dimension(:,:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_real_iface_withgridid_f2c &
+      (fid, gid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_integer_iface_withgridid_1d(fid, gid, name, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    integer, dimension(:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_integer_iface_withgridid_f2c &
+      (fid, gid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_integer_iface_withgridid_2d(fid, gid, name, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    integer, dimension(:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_integer_iface_withgridid_f2c &
+      (fid, gid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_integer_iface_withgridid_3d(fid, gid, name, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    integer, dimension(:,:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_integer_iface_withgridid_f2c &
+      (fid, gid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_real_jface_withgridid_1d(fid, gid, name, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    double precision, dimension(:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_real_jface_withgridid_f2c &
+      (fid, gid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_real_jface_withgridid_2d(fid, gid, name, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    double precision, dimension(:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_real_jface_withgridid_f2c &
+      (fid, gid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_real_jface_withgridid_3d(fid, gid, name, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    double precision, dimension(:,:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_real_jface_withgridid_f2c &
+      (fid, gid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_integer_jface_withgridid_1d(fid, gid, name, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    integer, dimension(:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_integer_jface_withgridid_f2c &
+      (fid, gid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_integer_jface_withgridid_2d(fid, gid, name, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    integer, dimension(:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_integer_jface_withgridid_f2c &
+      (fid, gid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_integer_jface_withgridid_3d(fid, gid, name, v_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: name
+    integer, dimension(:,:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_integer_jface_withgridid_f2c &
+      (fid, gid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_copy_grid_withgridid(fid_from, fid_to, gid, ier)
+    integer, intent(in):: fid_from
+    integer, intent(in):: fid_to
+    integer, intent(in):: gid
+    integer, intent(out):: ier
+
+    call cg_iric_copy_grid_withgridid_f2c &
+      (fid_from, fid_to, gid, ier)
+
+  end subroutine
+
 
 
   ! from iriclib_grid_solverlib.h
@@ -2260,15 +4036,15 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_read_sol_grid2d_open_withgridid(fid, gid, solid, grid_handle, ier)
+  subroutine cg_iric_read_sol_grid2d_open_withgridid(fid, gid, step, grid_handle, ier)
     integer, intent(in):: fid
     integer, intent(in):: gid
-    integer, intent(in):: solid
+    integer, intent(in):: step
     integer, intent(out):: grid_handle
     integer, intent(out):: ier
 
     call cg_iric_read_sol_grid2d_open_withgridid_f2c &
-      (fid, gid, solid, grid_handle, ier)
+      (fid, gid, step, grid_handle, ier)
 
   end subroutine
 
@@ -2491,7 +4267,7 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_read_complex_functional(fid, groupname, num, name, x_arr, y_arr, ier)
+  subroutine cg_iric_read_complex_functional_1d(fid, groupname, num, name, x_arr, y_arr, ier)
     integer, intent(in):: fid
     character(*), intent(in):: groupname
     integer, intent(in):: num
@@ -2505,7 +4281,49 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_read_complex_functionalwithname(fid, groupname, num, name, paramname, v_arr, ier)
+  subroutine cg_iric_read_complex_functional_2d(fid, groupname, num, name, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    double precision, dimension(:,:), intent(out):: x_arr
+    double precision, dimension(:,:), intent(out):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_complex_functional_f2c &
+      (fid, groupname, num, name, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_complex_functional_3d(fid, groupname, num, name, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    double precision, dimension(:,:,:), intent(out):: x_arr
+    double precision, dimension(:,:,:), intent(out):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_complex_functional_f2c &
+      (fid, groupname, num, name, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_complex_functional_4d(fid, groupname, num, name, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    double precision, dimension(:,:,:,:), intent(out):: x_arr
+    double precision, dimension(:,:,:,:), intent(out):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_complex_functional_f2c &
+      (fid, groupname, num, name, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_complex_functionalwithname_1d(fid, groupname, num, name, paramname, v_arr, ier)
     integer, intent(in):: fid
     character(*), intent(in):: groupname
     integer, intent(in):: num
@@ -2519,7 +4337,49 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_read_complex_functional_realsingle(fid, groupname, num, name, x_arr, y_arr, ier)
+  subroutine cg_iric_read_complex_functionalwithname_2d(fid, groupname, num, name, paramname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    double precision, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_complex_functionalwithname_f2c &
+      (fid, groupname, num, name, paramname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_complex_functionalwithname_3d(fid, groupname, num, name, paramname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    double precision, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_complex_functionalwithname_f2c &
+      (fid, groupname, num, name, paramname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_complex_functionalwithname_4d(fid, groupname, num, name, paramname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    double precision, dimension(:,:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_complex_functionalwithname_f2c &
+      (fid, groupname, num, name, paramname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_complex_functional_realsingle_1d(fid, groupname, num, name, x_arr, y_arr, ier)
     integer, intent(in):: fid
     character(*), intent(in):: groupname
     integer, intent(in):: num
@@ -2533,13 +4393,97 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_read_complex_functionalwithname_realsingle(fid, groupname, num, name, paramname, v_arr, ier)
+  subroutine cg_iric_read_complex_functional_realsingle_2d(fid, groupname, num, name, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    real, dimension(:,:), intent(out):: x_arr
+    real, dimension(:,:), intent(out):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_complex_functional_realsingle_f2c &
+      (fid, groupname, num, name, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_complex_functional_realsingle_3d(fid, groupname, num, name, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    real, dimension(:,:,:), intent(out):: x_arr
+    real, dimension(:,:,:), intent(out):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_complex_functional_realsingle_f2c &
+      (fid, groupname, num, name, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_complex_functional_realsingle_4d(fid, groupname, num, name, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    real, dimension(:,:,:,:), intent(out):: x_arr
+    real, dimension(:,:,:,:), intent(out):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_complex_functional_realsingle_f2c &
+      (fid, groupname, num, name, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_complex_functionalwithname_realsingle_1d(fid, groupname, num, name, paramname, v_arr, ier)
     integer, intent(in):: fid
     character(*), intent(in):: groupname
     integer, intent(in):: num
     character(*), intent(in):: name
     character(*), intent(in):: paramname
     real, dimension(:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_complex_functionalwithname_realsingle_f2c &
+      (fid, groupname, num, name, paramname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_complex_functionalwithname_realsingle_2d(fid, groupname, num, name, paramname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    real, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_complex_functionalwithname_realsingle_f2c &
+      (fid, groupname, num, name, paramname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_complex_functionalwithname_realsingle_3d(fid, groupname, num, name, paramname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    real, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_complex_functionalwithname_realsingle_f2c &
+      (fid, groupname, num, name, paramname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_complex_functionalwithname_realsingle_4d(fid, groupname, num, name, paramname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    real, dimension(:,:,:,:), intent(out):: v_arr
     integer, intent(out):: ier
 
     call cg_iric_read_complex_functionalwithname_realsingle_f2c &
@@ -2623,7 +4567,7 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_write_complex_functional(fid, groupname, num, name, length, x_arr, y_arr, ier)
+  subroutine cg_iric_write_complex_functional_1d(fid, groupname, num, name, length, x_arr, y_arr, ier)
     integer, intent(in):: fid
     character(*), intent(in):: groupname
     integer, intent(in):: num
@@ -2638,7 +4582,52 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_write_complex_functionalwithname(fid, groupname, num, name, paramname, length, v_arr, ier)
+  subroutine cg_iric_write_complex_functional_2d(fid, groupname, num, name, length, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    integer, intent(in):: length
+    double precision, dimension(:,:), intent(in):: x_arr
+    double precision, dimension(:,:), intent(in):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_complex_functional_f2c &
+      (fid, groupname, num, name, length, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_complex_functional_3d(fid, groupname, num, name, length, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    integer, intent(in):: length
+    double precision, dimension(:,:,:), intent(in):: x_arr
+    double precision, dimension(:,:,:), intent(in):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_complex_functional_f2c &
+      (fid, groupname, num, name, length, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_complex_functional_4d(fid, groupname, num, name, length, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    integer, intent(in):: length
+    double precision, dimension(:,:,:,:), intent(in):: x_arr
+    double precision, dimension(:,:,:,:), intent(in):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_complex_functional_f2c &
+      (fid, groupname, num, name, length, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_complex_functionalwithname_1d(fid, groupname, num, name, paramname, length, v_arr, ier)
     integer, intent(in):: fid
     character(*), intent(in):: groupname
     integer, intent(in):: num
@@ -2646,6 +4635,51 @@ contains
     character(*), intent(in):: paramname
     integer, intent(in):: length
     double precision, dimension(:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_complex_functionalwithname_f2c &
+      (fid, groupname, num, name, paramname, length, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_complex_functionalwithname_2d(fid, groupname, num, name, paramname, length, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    integer, intent(in):: length
+    double precision, dimension(:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_complex_functionalwithname_f2c &
+      (fid, groupname, num, name, paramname, length, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_complex_functionalwithname_3d(fid, groupname, num, name, paramname, length, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    integer, intent(in):: length
+    double precision, dimension(:,:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_complex_functionalwithname_f2c &
+      (fid, groupname, num, name, paramname, length, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_complex_functionalwithname_4d(fid, groupname, num, name, paramname, length, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    integer, intent(in):: length
+    double precision, dimension(:,:,:,:), intent(in):: v_arr
     integer, intent(out):: ier
 
     call cg_iric_write_complex_functionalwithname_f2c &
@@ -2693,11 +4727,35 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_read_bc_indices(fid, type, num, idx_arr, ier)
+  subroutine cg_iric_read_bc_indices_1d(fid, type, num, idx_arr, ier)
     integer, intent(in):: fid
     character(*), intent(in):: type
     integer, intent(in):: num
     integer, dimension(:), intent(out):: idx_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_indices_f2c &
+      (fid, type, num, idx_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_indices_2d(fid, type, num, idx_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    integer, dimension(:,:), intent(out):: idx_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_indices_f2c &
+      (fid, type, num, idx_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_indices_3d(fid, type, num, idx_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    integer, dimension(:,:,:), intent(out):: idx_arr
     integer, intent(out):: ier
 
     call cg_iric_read_bc_indices_f2c &
@@ -2783,7 +4841,7 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_read_bc_functional(fid, type, num, name, x_arr, y_arr, ier)
+  subroutine cg_iric_read_bc_functional_1d(fid, type, num, name, x_arr, y_arr, ier)
     integer, intent(in):: fid
     character(*), intent(in):: type
     integer, intent(in):: num
@@ -2797,7 +4855,49 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_read_bc_functionalwithname(fid, type, num, name, paramname, v_arr, ier)
+  subroutine cg_iric_read_bc_functional_2d(fid, type, num, name, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    double precision, dimension(:,:), intent(out):: x_arr
+    double precision, dimension(:,:), intent(out):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_functional_f2c &
+      (fid, type, num, name, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_functional_3d(fid, type, num, name, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    double precision, dimension(:,:,:), intent(out):: x_arr
+    double precision, dimension(:,:,:), intent(out):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_functional_f2c &
+      (fid, type, num, name, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_functional_4d(fid, type, num, name, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    double precision, dimension(:,:,:,:), intent(out):: x_arr
+    double precision, dimension(:,:,:,:), intent(out):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_functional_f2c &
+      (fid, type, num, name, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_functionalwithname_1d(fid, type, num, name, paramname, v_arr, ier)
     integer, intent(in):: fid
     character(*), intent(in):: type
     integer, intent(in):: num
@@ -2811,7 +4911,49 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_read_bc_functional_realsingle(fid, type, num, name, x_arr, y_arr, ier)
+  subroutine cg_iric_read_bc_functionalwithname_2d(fid, type, num, name, paramname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    double precision, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_functionalwithname_f2c &
+      (fid, type, num, name, paramname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_functionalwithname_3d(fid, type, num, name, paramname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    double precision, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_functionalwithname_f2c &
+      (fid, type, num, name, paramname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_functionalwithname_4d(fid, type, num, name, paramname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    double precision, dimension(:,:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_functionalwithname_f2c &
+      (fid, type, num, name, paramname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_functional_realsingle_1d(fid, type, num, name, x_arr, y_arr, ier)
     integer, intent(in):: fid
     character(*), intent(in):: type
     integer, intent(in):: num
@@ -2825,13 +4967,97 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_read_bc_functionalwithname_realsingle(fid, type, num, name, paramname, v_arr, ier)
+  subroutine cg_iric_read_bc_functional_realsingle_2d(fid, type, num, name, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    real, dimension(:,:), intent(out):: x_arr
+    real, dimension(:,:), intent(out):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_functional_realsingle_f2c &
+      (fid, type, num, name, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_functional_realsingle_3d(fid, type, num, name, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    real, dimension(:,:,:), intent(out):: x_arr
+    real, dimension(:,:,:), intent(out):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_functional_realsingle_f2c &
+      (fid, type, num, name, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_functional_realsingle_4d(fid, type, num, name, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    real, dimension(:,:,:,:), intent(out):: x_arr
+    real, dimension(:,:,:,:), intent(out):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_functional_realsingle_f2c &
+      (fid, type, num, name, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_functionalwithname_realsingle_1d(fid, type, num, name, paramname, v_arr, ier)
     integer, intent(in):: fid
     character(*), intent(in):: type
     integer, intent(in):: num
     character(*), intent(in):: name
     character(*), intent(in):: paramname
     real, dimension(:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_functionalwithname_realsingle_f2c &
+      (fid, type, num, name, paramname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_functionalwithname_realsingle_2d(fid, type, num, name, paramname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    real, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_functionalwithname_realsingle_f2c &
+      (fid, type, num, name, paramname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_functionalwithname_realsingle_3d(fid, type, num, name, paramname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    real, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_bc_functionalwithname_realsingle_f2c &
+      (fid, type, num, name, paramname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_bc_functionalwithname_realsingle_4d(fid, type, num, name, paramname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    real, dimension(:,:,:,:), intent(out):: v_arr
     integer, intent(out):: ier
 
     call cg_iric_read_bc_functionalwithname_realsingle_f2c &
@@ -2876,7 +5102,7 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_write_bc_indices(fid, type, num, length, idx_arr, ier)
+  subroutine cg_iric_write_bc_indices_1d(fid, type, num, length, idx_arr, ier)
     integer, intent(in):: fid
     character(*), intent(in):: type
     integer, intent(in):: num
@@ -2889,12 +5115,64 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_write_bc_indices2(fid, type, num, length, idx_arr, ier)
+  subroutine cg_iric_write_bc_indices_2d(fid, type, num, length, idx_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    integer, intent(in):: length
+    integer, dimension(:,:), intent(in):: idx_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_bc_indices_f2c &
+      (fid, type, num, length, idx_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_bc_indices_3d(fid, type, num, length, idx_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    integer, intent(in):: length
+    integer, dimension(:,:,:), intent(in):: idx_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_bc_indices_f2c &
+      (fid, type, num, length, idx_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_bc_indices2_1d(fid, type, num, length, idx_arr, ier)
     integer, intent(in):: fid
     character(*), intent(in):: type
     integer, intent(in):: num
     integer, intent(in):: length
     integer, dimension(:), intent(in):: idx_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_bc_indices2_f2c &
+      (fid, type, num, length, idx_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_bc_indices2_2d(fid, type, num, length, idx_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    integer, intent(in):: length
+    integer, dimension(:,:), intent(in):: idx_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_bc_indices2_f2c &
+      (fid, type, num, length, idx_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_bc_indices2_3d(fid, type, num, length, idx_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    integer, intent(in):: length
+    integer, dimension(:,:,:), intent(in):: idx_arr
     integer, intent(out):: ier
 
     call cg_iric_write_bc_indices2_f2c &
@@ -2941,7 +5219,7 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_write_bc_functional(fid, type, num, name, length, x_arr, y_arr, ier)
+  subroutine cg_iric_write_bc_functional_1d(fid, type, num, name, length, x_arr, y_arr, ier)
     integer, intent(in):: fid
     character(*), intent(in):: type
     integer, intent(in):: num
@@ -2956,7 +5234,52 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_write_bc_functionalwithname(fid, type, num, name, paramname, length, v_arr, ier)
+  subroutine cg_iric_write_bc_functional_2d(fid, type, num, name, length, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    integer, intent(in):: length
+    double precision, dimension(:,:), intent(in):: x_arr
+    double precision, dimension(:,:), intent(in):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_bc_functional_f2c &
+      (fid, type, num, name, length, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_bc_functional_3d(fid, type, num, name, length, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    integer, intent(in):: length
+    double precision, dimension(:,:,:), intent(in):: x_arr
+    double precision, dimension(:,:,:), intent(in):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_bc_functional_f2c &
+      (fid, type, num, name, length, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_bc_functional_4d(fid, type, num, name, length, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    integer, intent(in):: length
+    double precision, dimension(:,:,:,:), intent(in):: x_arr
+    double precision, dimension(:,:,:,:), intent(in):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_bc_functional_f2c &
+      (fid, type, num, name, length, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_bc_functionalwithname_1d(fid, type, num, name, paramname, length, v_arr, ier)
     integer, intent(in):: fid
     character(*), intent(in):: type
     integer, intent(in):: num
@@ -2964,6 +5287,51 @@ contains
     character(*), intent(in):: paramname
     integer, intent(in):: length
     double precision, dimension(:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_bc_functionalwithname_f2c &
+      (fid, type, num, name, paramname, length, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_bc_functionalwithname_2d(fid, type, num, name, paramname, length, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    integer, intent(in):: length
+    double precision, dimension(:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_bc_functionalwithname_f2c &
+      (fid, type, num, name, paramname, length, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_bc_functionalwithname_3d(fid, type, num, name, paramname, length, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    integer, intent(in):: length
+    double precision, dimension(:,:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_bc_functionalwithname_f2c &
+      (fid, type, num, name, paramname, length, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_bc_functionalwithname_4d(fid, type, num, name, paramname, length, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: type
+    integer, intent(in):: num
+    character(*), intent(in):: name
+    character(*), intent(in):: paramname
+    integer, intent(in):: length
+    double precision, dimension(:,:,:,:), intent(in):: v_arr
     integer, intent(out):: ier
 
     call cg_iric_write_bc_functionalwithname_f2c &
@@ -3051,6 +5419,72 @@ contains
 
   end subroutine
 
+  subroutine cg_iric_read_grid_complex_iface_1d(fid, groupname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, dimension(:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_complex_iface_f2c &
+      (fid, groupname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_complex_iface_2d(fid, groupname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_complex_iface_f2c &
+      (fid, groupname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_complex_iface_3d(fid, groupname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_complex_iface_f2c &
+      (fid, groupname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_complex_jface_1d(fid, groupname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, dimension(:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_complex_jface_f2c &
+      (fid, groupname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_complex_jface_2d(fid, groupname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_complex_jface_f2c &
+      (fid, groupname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_complex_jface_3d(fid, groupname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_complex_jface_f2c &
+      (fid, groupname, v_arr, ier)
+
+  end subroutine
+
   subroutine cg_iric_write_grid_complex_node_1d(fid, groupname, v_arr, ier)
     integer, intent(in):: fid
     character(*), intent(in):: groupname
@@ -3113,6 +5547,72 @@ contains
     integer, intent(out):: ier
 
     call cg_iric_write_grid_complex_cell_f2c &
+      (fid, groupname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_complex_iface_1d(fid, groupname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, dimension(:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_complex_iface_f2c &
+      (fid, groupname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_complex_iface_2d(fid, groupname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, dimension(:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_complex_iface_f2c &
+      (fid, groupname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_complex_iface_3d(fid, groupname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, dimension(:,:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_complex_iface_f2c &
+      (fid, groupname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_complex_jface_1d(fid, groupname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, dimension(:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_complex_jface_f2c &
+      (fid, groupname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_complex_jface_2d(fid, groupname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, dimension(:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_complex_jface_f2c &
+      (fid, groupname, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_complex_jface_3d(fid, groupname, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, dimension(:,:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_complex_jface_f2c &
       (fid, groupname, v_arr, ier)
 
   end subroutine
@@ -3186,13 +5686,23 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_read_grid_triangleelementssize(fid, size, ier)
+  subroutine cg_iric_read_grid_celltype(fid, type, ier)
     integer, intent(in):: fid
-    integer, intent(out):: size
+    integer, intent(out):: type
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_celltype_f2c &
+      (fid, type, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_triangleelementssize(fid, tsize, ier)
+    integer, intent(in):: fid
+    integer, intent(out):: tsize
     integer, intent(out):: ier
 
     call cg_iric_read_grid_triangleelementssize_f2c &
-      (fid, size, ier)
+      (fid, tsize, ier)
 
   end subroutine
 
@@ -3202,6 +5712,26 @@ contains
     integer, intent(out):: ier
 
     call cg_iric_read_grid_triangleelements_f2c &
+      (fid, id_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_lineelementssize(fid, tsize, ier)
+    integer, intent(in):: fid
+    integer, intent(out):: tsize
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_lineelementssize_f2c &
+      (fid, tsize, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_lineelements(fid, id_arr, ier)
+    integer, intent(in):: fid
+    integer, dimension(:), intent(out):: id_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_lineelements_f2c &
       (fid, id_arr, ier)
 
   end subroutine
@@ -3384,6 +5914,138 @@ contains
     integer, intent(out):: ier
 
     call cg_iric_read_grid_integer_cell_f2c &
+      (fid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_real_iface_1d(fid, name, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    double precision, dimension(:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_real_iface_f2c &
+      (fid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_real_iface_2d(fid, name, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    double precision, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_real_iface_f2c &
+      (fid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_real_iface_3d(fid, name, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    double precision, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_real_iface_f2c &
+      (fid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_integer_iface_1d(fid, name, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, dimension(:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_integer_iface_f2c &
+      (fid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_integer_iface_2d(fid, name, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_integer_iface_f2c &
+      (fid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_integer_iface_3d(fid, name, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_integer_iface_f2c &
+      (fid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_real_jface_1d(fid, name, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    double precision, dimension(:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_real_jface_f2c &
+      (fid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_real_jface_2d(fid, name, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    double precision, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_real_jface_f2c &
+      (fid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_real_jface_3d(fid, name, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    double precision, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_real_jface_f2c &
+      (fid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_integer_jface_1d(fid, name, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, dimension(:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_integer_jface_f2c &
+      (fid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_integer_jface_2d(fid, name, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_integer_jface_f2c &
+      (fid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_integer_jface_3d(fid, name, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_integer_jface_f2c &
       (fid, name, v_arr, ier)
 
   end subroutine
@@ -3590,6 +6252,150 @@ contains
 
   end subroutine
 
+  subroutine cg_iric_read_grid_functional_integer_iface_1d(fid, name, dimid, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: dimid
+    integer, dimension(:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_functional_integer_iface_f2c &
+      (fid, name, dimid, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_functional_integer_iface_2d(fid, name, dimid, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: dimid
+    integer, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_functional_integer_iface_f2c &
+      (fid, name, dimid, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_functional_integer_iface_3d(fid, name, dimid, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: dimid
+    integer, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_functional_integer_iface_f2c &
+      (fid, name, dimid, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_functional_real_iface_1d(fid, name, dimid, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: dimid
+    double precision, dimension(:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_functional_real_iface_f2c &
+      (fid, name, dimid, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_functional_real_iface_2d(fid, name, dimid, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: dimid
+    double precision, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_functional_real_iface_f2c &
+      (fid, name, dimid, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_functional_real_iface_3d(fid, name, dimid, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: dimid
+    double precision, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_functional_real_iface_f2c &
+      (fid, name, dimid, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_functional_integer_jface_1d(fid, name, dimid, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: dimid
+    integer, dimension(:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_functional_integer_jface_f2c &
+      (fid, name, dimid, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_functional_integer_jface_2d(fid, name, dimid, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: dimid
+    integer, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_functional_integer_jface_f2c &
+      (fid, name, dimid, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_functional_integer_jface_3d(fid, name, dimid, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: dimid
+    integer, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_functional_integer_jface_f2c &
+      (fid, name, dimid, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_functional_real_jface_1d(fid, name, dimid, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: dimid
+    double precision, dimension(:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_functional_real_jface_f2c &
+      (fid, name, dimid, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_functional_real_jface_2d(fid, name, dimid, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: dimid
+    double precision, dimension(:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_functional_real_jface_f2c &
+      (fid, name, dimid, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_grid_functional_real_jface_3d(fid, name, dimid, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: dimid
+    double precision, dimension(:,:,:), intent(out):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_grid_functional_real_jface_f2c &
+      (fid, name, dimid, v_arr, ier)
+
+  end subroutine
+
   subroutine cg_iric_write_grid1d_coords(fid, isize, x_arr, ier)
     integer, intent(in):: fid
     integer, intent(in):: isize
@@ -3654,6 +6460,167 @@ contains
 
     call cg_iric_write_grid3d_coords_f2c &
       (fid, isize, jsize, ksize, x_arr, y_arr, z_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_namedgrid1d_coords(fid, name, isize, x_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: isize
+    double precision, dimension(:), intent(in):: x_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_namedgrid1d_coords_f2c &
+      (fid, name, isize, x_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_namedgrid2d_coords_1d(fid, name, isize, jsize, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: isize
+    integer, intent(in):: jsize
+    double precision, dimension(:), intent(in):: x_arr
+    double precision, dimension(:), intent(in):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_namedgrid2d_coords_f2c &
+      (fid, name, isize, jsize, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_namedgrid2d_coords_2d(fid, name, isize, jsize, x_arr, y_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: isize
+    integer, intent(in):: jsize
+    double precision, dimension(:,:), intent(in):: x_arr
+    double precision, dimension(:,:), intent(in):: y_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_namedgrid2d_coords_f2c &
+      (fid, name, isize, jsize, x_arr, y_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_namedgrid3d_coords_1d(fid, name, isize, jsize, ksize, x_arr, y_arr, z_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: isize
+    integer, intent(in):: jsize
+    integer, intent(in):: ksize
+    double precision, dimension(:), intent(in):: x_arr
+    double precision, dimension(:), intent(in):: y_arr
+    double precision, dimension(:), intent(in):: z_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_namedgrid3d_coords_f2c &
+      (fid, name, isize, jsize, ksize, x_arr, y_arr, z_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_namedgrid3d_coords_3d(fid, name, isize, jsize, ksize, x_arr, y_arr, z_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: isize
+    integer, intent(in):: jsize
+    integer, intent(in):: ksize
+    double precision, dimension(:,:,:), intent(in):: x_arr
+    double precision, dimension(:,:,:), intent(in):: y_arr
+    double precision, dimension(:,:,:), intent(in):: z_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_namedgrid3d_coords_f2c &
+      (fid, name, isize, jsize, ksize, x_arr, y_arr, z_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid2d_unst_triangles(fid, psize, x_arr, y_arr, csize, idx_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: psize
+    double precision, dimension(:), intent(in):: x_arr
+    double precision, dimension(:), intent(in):: y_arr
+    integer, intent(in):: csize
+    integer, dimension(:), intent(in):: idx_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid2d_unst_triangles_f2c &
+      (fid, psize, x_arr, y_arr, csize, idx_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid2d_unst_lines(fid, psize, x_arr, y_arr, csize, idx_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: psize
+    double precision, dimension(:), intent(in):: x_arr
+    double precision, dimension(:), intent(in):: y_arr
+    integer, intent(in):: csize
+    integer, dimension(:), intent(in):: idx_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid2d_unst_lines_f2c &
+      (fid, psize, x_arr, y_arr, csize, idx_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid3d_unst_lines(fid, psize, x_arr, y_arr, z_arr, csize, idx_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: psize
+    double precision, dimension(:), intent(in):: x_arr
+    double precision, dimension(:), intent(in):: y_arr
+    double precision, dimension(:), intent(in):: z_arr
+    integer, intent(in):: csize
+    integer, dimension(:), intent(in):: idx_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid3d_unst_lines_f2c &
+      (fid, psize, x_arr, y_arr, z_arr, csize, idx_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_namedgrid2d_unst_triangles(fid, name, psize, x_arr, y_arr, csize, idx_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: psize
+    double precision, dimension(:), intent(in):: x_arr
+    double precision, dimension(:), intent(in):: y_arr
+    integer, intent(in):: csize
+    integer, dimension(:), intent(in):: idx_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_namedgrid2d_unst_triangles_f2c &
+      (fid, name, psize, x_arr, y_arr, csize, idx_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_namedgrid2d_unst_lines(fid, name, psize, x_arr, y_arr, csize, idx_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: psize
+    double precision, dimension(:), intent(in):: x_arr
+    double precision, dimension(:), intent(in):: y_arr
+    integer, intent(in):: csize
+    integer, dimension(:), intent(in):: idx_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_namedgrid2d_unst_lines_f2c &
+      (fid, name, psize, x_arr, y_arr, csize, idx_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_namedgrid3d_unst_lines(fid, name, psize, x_arr, y_arr, z_arr, csize, idx_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, intent(in):: psize
+    double precision, dimension(:), intent(in):: x_arr
+    double precision, dimension(:), intent(in):: y_arr
+    double precision, dimension(:), intent(in):: z_arr
+    integer, intent(in):: csize
+    integer, dimension(:), intent(in):: idx_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_namedgrid3d_unst_lines_f2c &
+      (fid, name, psize, x_arr, y_arr, z_arr, csize, idx_arr, ier)
 
   end subroutine
 
@@ -3789,6 +6756,148 @@ contains
 
   end subroutine
 
+  subroutine cg_iric_write_grid_real_iface_1d(fid, name, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    double precision, dimension(:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_real_iface_f2c &
+      (fid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_real_iface_2d(fid, name, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    double precision, dimension(:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_real_iface_f2c &
+      (fid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_real_iface_3d(fid, name, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    double precision, dimension(:,:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_real_iface_f2c &
+      (fid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_integer_iface_1d(fid, name, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, dimension(:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_integer_iface_f2c &
+      (fid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_integer_iface_2d(fid, name, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, dimension(:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_integer_iface_f2c &
+      (fid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_integer_iface_3d(fid, name, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, dimension(:,:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_integer_iface_f2c &
+      (fid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_real_jface_1d(fid, name, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    double precision, dimension(:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_real_jface_f2c &
+      (fid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_real_jface_2d(fid, name, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    double precision, dimension(:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_real_jface_f2c &
+      (fid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_real_jface_3d(fid, name, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    double precision, dimension(:,:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_real_jface_f2c &
+      (fid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_integer_jface_1d(fid, name, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, dimension(:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_integer_jface_f2c &
+      (fid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_integer_jface_2d(fid, name, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, dimension(:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_integer_jface_f2c &
+      (fid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_grid_integer_jface_3d(fid, name, v_arr, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: name
+    integer, dimension(:,:,:), intent(in):: v_arr
+    integer, intent(out):: ier
+
+    call cg_iric_write_grid_integer_jface_f2c &
+      (fid, name, v_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_copy_grid(fid_from, fid_to, ier)
+    integer, intent(in):: fid_from
+    integer, intent(in):: fid_to
+    integer, intent(out):: ier
+
+    call cg_iric_copy_grid_f2c &
+      (fid_from, fid_to, ier)
+
+  end subroutine
+
   subroutine cg_iric_read_grid2d_open(fid, grid_handle, ier)
     integer, intent(in):: fid
     integer, intent(out):: grid_handle
@@ -3799,14 +6908,14 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_read_sol_grid2d_open(fid, solid, grid_handle, ier)
+  subroutine cg_iric_read_sol_grid2d_open(fid, step, grid_handle, ier)
     integer, intent(in):: fid
-    integer, intent(in):: solid
+    integer, intent(in):: step
     integer, intent(out):: grid_handle
     integer, intent(out):: ier
 
     call cg_iric_read_sol_grid2d_open_f2c &
-      (fid, solid, grid_handle, ier)
+      (fid, step, grid_handle, ier)
 
   end subroutine
 
@@ -4768,13 +7877,13 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_write_sol_particlegroup_groupbegin(fid, name, ier)
+  subroutine cg_iric_write_sol_particlegroup_groupbegin(fid, groupname, ier)
     integer, intent(in):: fid
-    character(*), intent(in):: name
+    character(*), intent(in):: groupname
     integer, intent(out):: ier
 
     call cg_iric_write_sol_particlegroup_groupbegin_f2c &
-      (fid, name, ier)
+      (fid, groupname, ier)
 
   end subroutine
 
@@ -4829,6 +7938,65 @@ contains
 
     call cg_iric_write_sol_particlegroup_real_f2c &
       (fid, name, value, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_sol_particlegroupimage_count(fid, step, groupname, count, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: step
+    character(*), intent(in):: groupname
+    integer, intent(out):: count
+    integer, intent(out):: ier
+
+    call cg_iric_read_sol_particlegroupimage_count_f2c &
+      (fid, step, groupname, count, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_sol_particlegroupimage_pos2d(fid, step, groupname, x_arr, y_arr, size_arr, angle_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: step
+    character(*), intent(in):: groupname
+    double precision, dimension(:), intent(out):: x_arr
+    double precision, dimension(:), intent(out):: y_arr
+    double precision, dimension(:), intent(out):: size_arr
+    double precision, dimension(:), intent(out):: angle_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_sol_particlegroupimage_pos2d_f2c &
+      (fid, step, groupname, x_arr, y_arr, size_arr, angle_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_sol_particlegroupimage_groupbegin(fid, groupname, ier)
+    integer, intent(in):: fid
+    character(*), intent(in):: groupname
+    integer, intent(out):: ier
+
+    call cg_iric_write_sol_particlegroupimage_groupbegin_f2c &
+      (fid, groupname, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_sol_particlegroupimage_groupend(fid, ier)
+    integer, intent(in):: fid
+    integer, intent(out):: ier
+
+    call cg_iric_write_sol_particlegroupimage_groupend_f2c &
+      (fid, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_sol_particlegroupimage_pos2d(fid, x, y, size, angle, ier)
+    integer, intent(in):: fid
+    double precision, intent(in):: x
+    double precision, intent(in):: y
+    double precision, intent(in):: size
+    double precision, intent(in):: angle
+    integer, intent(out):: ier
+
+    call cg_iric_write_sol_particlegroupimage_pos2d_f2c &
+      (fid, x, y, size, angle, ier)
 
   end subroutine
 
@@ -4907,13 +8075,13 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_write_sol_polydata_groupbegin(fid, name, ier)
+  subroutine cg_iric_write_sol_polydata_groupbegin(fid, groupname, ier)
     integer, intent(in):: fid
-    character(*), intent(in):: name
+    character(*), intent(in):: groupname
     integer, intent(out):: ier
 
     call cg_iric_write_sol_polydata_groupbegin_f2c &
-      (fid, name, ier)
+      (fid, groupname, ier)
 
   end subroutine
 
@@ -4997,14 +8165,14 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_read_sol_iteration(fid, step, index, ier)
+  subroutine cg_iric_read_sol_iteration(fid, step, iteration, ier)
     integer, intent(in):: fid
     integer, intent(in):: step
-    integer, intent(out):: index
+    integer, intent(out):: iteration
     integer, intent(out):: ier
 
     call cg_iric_read_sol_iteration_f2c &
-      (fid, step, index, ier)
+      (fid, step, iteration, ier)
 
   end subroutine
 
@@ -5084,13 +8252,13 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_write_sol_iteration(fid, index, ier)
+  subroutine cg_iric_write_sol_iteration(fid, iteration, ier)
     integer, intent(in):: fid
-    integer, intent(in):: index
+    integer, intent(in):: iteration
     integer, intent(out):: ier
 
     call cg_iric_write_sol_iteration_f2c &
-      (fid, index, ier)
+      (fid, iteration, ier)
 
   end subroutine
 
@@ -5134,6 +8302,15 @@ contains
 
     call cg_iric_write_errorcode_f2c &
       (fid, errorcode, ier)
+
+  end subroutine
+
+  subroutine cg_iric_clear_sol(fid, ier)
+    integer, intent(in):: fid
+    integer, intent(out):: ier
+
+    call cg_iric_clear_sol_f2c &
+      (fid, ier)
 
   end subroutine
 
@@ -6209,14 +9386,14 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_write_sol_particlegroup_groupbegin_withgridid(fid, gid, name, ier)
+  subroutine cg_iric_write_sol_particlegroup_groupbegin_withgridid(fid, gid, groupname, ier)
     integer, intent(in):: fid
     integer, intent(in):: gid
-    character(*), intent(in):: name
+    character(*), intent(in):: groupname
     integer, intent(out):: ier
 
     call cg_iric_write_sol_particlegroup_groupbegin_withgridid_f2c &
-      (fid, gid, name, ier)
+      (fid, gid, groupname, ier)
 
   end subroutine
 
@@ -6276,6 +9453,74 @@ contains
 
     call cg_iric_write_sol_particlegroup_real_withgridid_f2c &
       (fid, gid, name, value, ier)
+
+  end subroutine
+
+
+
+  ! from iriclib_sol_particlegroupimage.h
+
+  subroutine cg_iric_read_sol_particlegroupimage_count_withgridid(fid, gid, step, groupname, count, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    integer, intent(in):: step
+    character(*), intent(in):: groupname
+    integer, intent(out):: count
+    integer, intent(out):: ier
+
+    call cg_iric_read_sol_particlegroupimage_count_withgridid_f2c &
+      (fid, gid, step, groupname, count, ier)
+
+  end subroutine
+
+  subroutine cg_iric_read_sol_particlegroupimage_pos2d_withgridid(fid, gid, step, groupname, x_arr, y_arr, size_arr, angle_arr, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    integer, intent(in):: step
+    character(*), intent(in):: groupname
+    double precision, dimension(:), intent(out):: x_arr
+    double precision, dimension(:), intent(out):: y_arr
+    double precision, dimension(:), intent(out):: size_arr
+    double precision, dimension(:), intent(out):: angle_arr
+    integer, intent(out):: ier
+
+    call cg_iric_read_sol_particlegroupimage_pos2d_withgridid_f2c &
+      (fid, gid, step, groupname, x_arr, y_arr, size_arr, angle_arr, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_sol_particlegroupimage_groupbegin_withgridid(fid, gid, groupname, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    character(*), intent(in):: groupname
+    integer, intent(out):: ier
+
+    call cg_iric_write_sol_particlegroupimage_groupbegin_withgridid_f2c &
+      (fid, gid, groupname, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_sol_particlegroupimage_groupend_withgridid(fid, gid, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    integer, intent(out):: ier
+
+    call cg_iric_write_sol_particlegroupimage_groupend_withgridid_f2c &
+      (fid, gid, ier)
+
+  end subroutine
+
+  subroutine cg_iric_write_sol_particlegroupimage_pos2d_withgridid(fid, gid, x, y, size, angle, ier)
+    integer, intent(in):: fid
+    integer, intent(in):: gid
+    double precision, intent(in):: x
+    double precision, intent(in):: y
+    double precision, intent(in):: size
+    double precision, intent(in):: angle
+    integer, intent(out):: ier
+
+    call cg_iric_write_sol_particlegroupimage_pos2d_withgridid_f2c &
+      (fid, gid, x, y, size, angle, ier)
 
   end subroutine
 
@@ -6364,14 +9609,14 @@ contains
 
   end subroutine
 
-  subroutine cg_iric_write_sol_polydata_groupbegin_withgridid(fid, gid, name, ier)
+  subroutine cg_iric_write_sol_polydata_groupbegin_withgridid(fid, gid, groupname, ier)
     integer, intent(in):: fid
     integer, intent(in):: gid
-    character(*), intent(in):: name
+    character(*), intent(in):: groupname
     integer, intent(out):: ier
 
     call cg_iric_write_sol_polydata_groupbegin_withgridid_f2c &
-      (fid, gid, name, ier)
+      (fid, gid, groupname, ier)
 
   end subroutine
 
