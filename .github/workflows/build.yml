@@ -145,6 +145,44 @@ jobs:
         Set-Location .\online_update_v4
         git add -A
 
+    # Sign install\*.exe/dll before they are copied to online_update_v4.
+    # Signed files are not committed back to the solver repo.
+    - name: Set up Python for signing
+      if: ${{ env.STATUS == 'public' || env.STATUS == 'develop' }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.13"
+
+    - name: Install AzureSignTool
+      if: ${{ env.STATUS == 'public' || env.STATUS == 'develop' }}
+      shell: pwsh
+      run: |
+        dotnet tool install --global AzureSignTool --version 7.0.1
+        "$env:USERPROFILE\.dotnet\tools" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+
+    - name: Sign and verify install binaries
+      if: ${{ env.STATUS == 'public' || env.STATUS == 'develop' }}
+      shell: pwsh
+      env:
+        AZURE_KEY_VAULT_URI: ${{ secrets.AZURE_KEY_VAULT_URI }}
+        AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+        AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+        AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+        AZURE_CERT_NAME: ${{ secrets.AZURE_CERT_NAME }}
+        AZURE_EXPECTED_SIGNER_THUMBPRINT: ${{ secrets.AZURE_EXPECTED_SIGNER_THUMBPRINT }}
+      run: |
+        & .\${{env.WORK_DIR}}\tools\release\sign-install.ps1 `
+          -InstallDir .\${{env.WORK_DIR}}\install `
+          -ReportDir "$env:RUNNER_TEMP\signing-report"
+
+    - name: Upload signing report
+      if: ${{ always() && (env.STATUS == 'public' || env.STATUS == 'develop') }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: signing-report
+        path: ${{ runner.temp }}/signing-report
+        if-no-files-found: ignore
+
     - name: Prepare data for dev
       if: ${{ env.STATUS == 'public' || env.STATUS == 'develop' }}
       shell: pwsh
