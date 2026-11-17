@@ -1,32 +1,32 @@
 {
-  "createdAt": "2026-10-28T11:28:19+09:00",
-  "sourceRepository": null,
-  "sourceCommit": null,
-  "sourceDirty": false,
-  "files": [
-    {
-      "path": ".github/workflows/build.yml",
-      "sha256": "280FB333546C38C8D20D1EB925C4CD614C38E33C38C606A92F7226FEDD7A87AE"
-    },
-    {
-      "path": "tools/release/README.md",
-      "sha256": "82A9F99E059160F53823699B180378C8834B9686345C15AA99EE8C34C48DB97B"
-    },
-    {
-      "path": "tools/release/sign-install.ps1",
-      "sha256": "7DB1C34744961F811CC88D3F056DBD9F07A1C2FCCC3BF0AD47A168B9F40D4668"
-    },
-    {
-      "path": "tools/release/sign_binary.py",
-      "sha256": "4482FCE64CDD8FC44579FF38AE8AAD24E58631E717AA0123024EA57DB4E9B152"
-    },
-    {
-      "path": "tools/release/verify-signature.ps1",
-      "sha256": "907C1649727641628D5415080B51651396C40AFCF84096A553BF93C85596F1DD"
-    },
-    {
-      "path": "tools/release/package-signing-kit.ps1",
-      "sha256": "50EF83D16C2F53FF71370883F9595F7A2BA9BC4D700EFFC7887FB321FE8BFB04"
-    }
-  ]
+    "createdAt":  "2026-11-16T22:24:01+09:00",
+    "sourceRepository":  "https://github.com/iRICsolvers/solver-signing-kit.git",
+    "sourceCommit":  "543086cedfc57a49ae956608c83129faa4b5a07a",
+    "sourceDirty":  false,
+    "files":  [
+                  {
+                      "path":  ".github/workflows/build.yml",
+                      "sha256":  "91A92EDC135EB102511D98580EDC3ACA33FD0A75CB61CBC0CB0EB1D0388A8954"
+                  },
+                  {
+                      "path":  "tools/release/README.md",
+                      "sha256":  "636F38E2F545690925789B7653D25AF5BDB1D959BC9887032FF6A9BAD0AD0774"
+                  },
+                  {
+                      "path":  "tools/release/sign-install.ps1",
+                      "sha256":  "7DB1C34744961F811CC88D3F056DBD9F07A1C2FCCC3BF0AD47A168B9F40D4668"
+                  },
+                  {
+                      "path":  "tools/release/sign_binary.py",
+                      "sha256":  "4482FCE64CDD8FC44579FF38AE8AAD24E58631E717AA0123024EA57DB4E9B152"
+                  },
+                  {
+                      "path":  "tools/release/verify-signature.ps1",
+                      "sha256":  "907C1649727641628D5415080B51651396C40AFCF84096A553BF93C85596F1DD"
+                  },
+                  {
+                      "path":  "tools/release/package-signing-kit.ps1",
+                      "sha256":  "50EF83D16C2F53FF71370883F9595F7A2BA9BC4D700EFFC7887FB321FE8BFB04"
+                  }
+              ]
 }

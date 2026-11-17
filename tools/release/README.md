@@ -32,19 +32,21 @@
 
 `sign_binary.py` と `verify-signature.ps1` は iRIC-UC の実装をそのまま使っています。直すときは両方を揃えてください。
 
-## 必要な Secrets
+## Azure への認証（OIDC）
 
-| 名前 | 必須 | 内容 |
+署名用の Secrets は使いません。GitHub Actions の OIDC トークンで Azure にログインします（`azure/login`）。
+
+- Azure のアプリ `iRIC-CodeSigning-GHA` に、次の2つのフェデレーション資格情報（柔軟なフェデレーション資格情報、プレビュー）が登録されています。
+  - `iricsolvers-main`: `claims['sub'] matches 'repo:iRICsolvers*:ref:refs/heads/main' and claims['repository_owner_id'] eq '106729584'`
+  - `iricsolvers-master`: 同じ条件で `refs/heads/master`
+- このため、**iRICsolvers 組織のリポジトリの main / master ブランチからだけ**署名できます。公開・非公開を問いません。組織外のリポジトリや、ほかのブランチからは署名できません。
+- build.yml には、秘密でない値（クライアント ID、テナント ID、Key Vault の URI、証明書名）を直接書いています。証明書を別の名前で入れ替えたときは、build.yml の `AZURE_CERT_NAME` を直してキットを配り直してください。同じ名前で更新した場合は変更不要です。
+- job に `permissions: id-token: write` が必要です。build.yml を独自に変更しているリポジトリに署名ステップだけを移植するときは、これも忘れずに移植してください。
+
+| 名前 | 種類 | 内容 |
 |---|---|---|
-| `AZURE_KEY_VAULT_URI` | ○ | Key Vault の URI |
-| `AZURE_CLIENT_ID` | ○ | 署名用アプリのクライアント ID |
-| `AZURE_TENANT_ID` | ○ | テナント ID |
-| `AZURE_CLIENT_SECRET` | ○ | クライアントシークレット |
-| `AZURE_CERT_NAME` | ○ | Key Vault 上の証明書名 |
-| `AZURE_EXPECTED_SIGNER_THUMBPRINT` | 推奨 | 署名者証明書の Thumbprint。未設定だと署名者の照合を行わない |
-| `ONLINE_UPDATE_TOKEN` | ○ | 既存のもの。online_update_v4 への push 用 |
-
-組織レベルの Secrets に登録しておけば、各リポジトリでの設定は不要です。
+| `ONLINE_UPDATE_TOKEN` | リポジトリの Secret | 既存のもの。online_update_v4 への push 用 |
+| `AZURE_EXPECTED_SIGNER_THUMBPRINT` | 任意 | 署名者証明書の Thumbprint。設定しない場合は署名者の照合を行わず、署名済みファイルはすべて第三者署名として扱う（警告が出るが動作に問題はない）。証明書を更新すると値が変わるので、build.yml には書いていない |
 
 ## 他のソルバーリポジトリへの展開
 
@@ -63,7 +65,10 @@
 
 3. 展開先の差分を確認します。iRICsolvers の各リポジトリの build.yml は `runs-on` 以外同じなので、通常は `runs-on` と署名ステップだけが差分になります。
    - キットの `runs-on` は `windows-latest` です。`windows-2019` は廃止済みなので、そのまま置き換えて構いません。
-   - 展開先の build.yml に独自の変更がある場合は、上書きせずに署名ステップ（「Set up Python for signing」から「Upload signing report」まで）だけを移植してください。
+   - 展開先の build.yml に独自の変更がある場合は、上書きせずに次の3か所を移植してください。
+     - `env` の署名用の値（`SIGNING_AZURE_CLIENT_ID` から `AZURE_CERT_NAME` まで）
+     - job の `permissions`（`id-token: write` と `contents: read`）
+     - 署名ステップ（「Set up Python for signing」から「Upload signing report」まで）
 
 4. 手元で署名対象を確認します（署名はしません）。
 
@@ -74,4 +79,5 @@
 ## 注意
 
 - 署名済みのファイルが既存ユーザーに届くのは、`definition.xml` の `version` を上げて配信したときだけです。オンラインアップデートは、バージョンが上がったパッケージしか更新しません。
-- build.yml は `main` / `master` への push で動きます。作業ブランチへの push では配信されません。
+- build.yml は `main` / `master` への push で動きます。作業ブランチへの push では配信されず、Azure の設定上、署名もできません。
+- Python だけのソルバー（`install/` に exe も dll もない）は署名の対象外です。キットを入れるとエラーで止まるので、入れないでください。

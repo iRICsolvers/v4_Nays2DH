@@ -26,6 +26,15 @@ env:
   WINDOWS_HPCKIT_FILE: hpckit.exe
   WINDOWS_HPCKIT_COMPONENTS: intel.oneapi.win.ifort-compiler
 
+  # Code signing (OIDC). These values are not secrets.
+  # Azure trusts GitHub OIDC tokens from the main/master branch of any
+  # iRICsolvers repository (federated credentials iricsolvers-main/-master on
+  # the app iRIC-CodeSigning-GHA), so no client secret is needed.
+  SIGNING_AZURE_CLIENT_ID: 05215ebd-db79-45e3-8866-dfe3732734e7
+  SIGNING_AZURE_TENANT_ID: 98448f69-0949-47b2-b75f-49e406516934
+  AZURE_KEY_VAULT_URI: https://hsm-iric.vault.azure.net/
+  AZURE_CERT_NAME: IRICUC2026
+
 jobs:
   build:
     # The CMake configure and build commands are platform agnostic and should work equally
@@ -33,6 +42,10 @@ jobs:
     # cross-platform coverage.
     # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
     runs-on: windows-latest
+    # id-token: write lets azure/login get a GitHub OIDC token for code signing.
+    permissions:
+      id-token: write
+      contents: read
     steps:
     - name: Checkout solver repo
       uses: actions/checkout@v2
@@ -160,16 +173,20 @@ jobs:
         dotnet tool install --global AzureSignTool --version 7.0.1
         "$env:USERPROFILE\.dotnet\tools" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 
+    - name: Azure login for signing (OIDC)
+      if: ${{ env.STATUS == 'public' || env.STATUS == 'develop' }}
+      uses: azure/login@v2
+      with:
+        client-id: ${{ env.SIGNING_AZURE_CLIENT_ID }}
+        tenant-id: ${{ env.SIGNING_AZURE_TENANT_ID }}
+        allow-no-subscriptions: true
+
     - name: Sign and verify install binaries
       if: ${{ env.STATUS == 'public' || env.STATUS == 'develop' }}
       shell: pwsh
       env:
-        AZURE_KEY_VAULT_URI: ${{ secrets.AZURE_KEY_VAULT_URI }}
-        AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-        AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-        AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-        AZURE_CERT_NAME: ${{ secrets.AZURE_CERT_NAME }}
-        AZURE_EXPECTED_SIGNER_THUMBPRINT: ${{ secrets.AZURE_EXPECTED_SIGNER_THUMBPRINT }}
+        # use the Azure CLI login above instead of a client secret
+        AZURE_SIGN_AUTH_MODE: managed-identity
       run: |
         & .\${{env.WORK_DIR}}\tools\release\sign-install.ps1 `
           -InstallDir .\${{env.WORK_DIR}}\install `
